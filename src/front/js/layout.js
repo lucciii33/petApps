@@ -6,6 +6,8 @@ import { Home } from "./pages/home";
 import { Profile } from "./pages/profile";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import { CompOne } from "./component/mainpagecompone";
+import { CompTwo } from "./component/mainpagecomptwo";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -24,6 +26,8 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+							<CompOne />
+							<CompTwo />
 						</Route>
 						<Route exact path="/profile">
 							<Profile />

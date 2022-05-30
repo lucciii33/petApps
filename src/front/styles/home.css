@@ -52,7 +52,7 @@ textarea {
   width: 280px;
   height: 292px;
   border-radius: 8px;
-  background-color: aquamarine;
+  background-color: #b4e197;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -60,7 +60,7 @@ textarea {
   width: 280px;
   height: 183px;
   border-radius: 8px;
-  background-color: aquamarine;
+  background-color: #b4e197;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -68,7 +68,7 @@ textarea {
   width: 280px;
   height: 111px;
   border-radius: 8px;
-  background-color: aquamarine;
+  background-color: #b4e197;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -88,8 +88,33 @@ textarea {
   padding: 0;
   margin: 0;
 }
-
+/* ///////////////////////////////////////////////// */
 .mainpagebox {
-  background-color: aquamarine;
+  background-color: #b4e197;
   padding: 0;
+}
+.greenbutton {
+  margin-left: 100px;
+}
+
+/* ///////////////////////////////////////// */
+.circlemainpage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #b4e197;
+  margin: 15px;
+}
+
+/* ///////////////////////////////////////// */
+
+.squeremainpage {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  background-color: white;
+  margin: 15px;
+}
+.bg-green {
+  background-color: #b4e197;
 }
