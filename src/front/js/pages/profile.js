@@ -18,7 +18,45 @@ export const Profile = () => {
 						<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile "></img>
 					</div>
 					<div className="sectionprofile">
-						<h5 className="mb-2">Dr. Susana Horia  <i class="fas fa-pencil-alt"></i> </h5>
+						<h5 className="mb-2">Dr. Susana Horia </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+
+						<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div className="modal-dialog">
+								<div className="modal-content">
+									<div className="modal-header">
+										<h5 className="modal-title" id="exampleModalLabel">Edit Credentials</h5>
+										<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div className="modal-body ">
+										<div>Please add the following credentials:</div>
+										<div className="d-grid justify-content-center m-1">
+											<label className="labelsingup text-muted">Your Name
+												<input></input>
+											</label>
+											<label className="labelsingup text-muted">Your Practice’s Name
+												<input></input>
+											</label>
+											<label className="labelsingup text-muted">Your Specialty
+												<input></input>
+											</label>
+											<label className="labelsingup text-muted">Sub Specialty
+												<input></input>
+											</label>
+											<label className="labelsingup text-muted">Years of Experience
+												<input></input>
+											</label>
+
+										</div>
+									</div>
+									<div className="modal-footer">
+										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" className="btn btn-primary">Save changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
 						<h6 className="mb-2">practice name</h6>
 						<p></p>
 						<h6 className="mb-2">Specialty</h6>

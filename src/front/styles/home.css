@@ -76,3 +76,20 @@ textarea {
   display: grid;
   align-items: stretch;
 }
+
+.text1 {
+  display: grid;
+  margin-top: 170px;
+  margin-left: 100px;
+}
+.image1 {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.mainpagebox {
+  background-color: aquamarine;
+  padding: 0;
+}
