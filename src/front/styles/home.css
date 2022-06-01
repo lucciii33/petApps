@@ -118,3 +118,15 @@ textarea {
 .bg-green {
   background-color: #b4e197;
 }
+
+/* ////////////////////////// */
+.bg-aboutus {
+  background-color: #b4e197;
+}
+.squereaboutus {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  background-color: #b4e197;
+  margin: 15px;
+}
