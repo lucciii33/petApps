@@ -112,10 +112,8 @@ def post_profiles():
     profile1 = Profile(title= body['title'], aboutme= body['aboutme'], howicanhelp= body['howicanhelp'], services=body['services'], certifications=body['certifications'], comments=['comments'])
     db.session.add(profile1)
     db.session.commit()
-    profile_query = Profile.query.all()
-    all_profiles = list(map(lambda x: x.serialize(), profile_query))
-
-    return jsonify(all_profiles), 200
+    
+    return jsonify(all_profiles.serialize()), 200
 
     
 

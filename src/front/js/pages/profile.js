@@ -5,7 +5,10 @@ import { Context } from "../store/appContext";
 
 export const Profile = () => {
 	const { store, actions } = useContext(Context);
-
+	const [inputValue, setInputValue] = useState({ aboutme: "", howicanhelp: "", services: "", certifications: "" });
+	const handleChange = e => {
+		setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+	};
 	return (
 		<div className="container">
 			<div>
@@ -76,19 +79,35 @@ export const Profile = () => {
 				<div className="col-md-4">
 					<div className="editprofile">
 						<h3>About Me</h3>
-						<textarea></textarea>
+						<textarea
+							name="aboutme"
+							// value={aboutme}
+							onChange={handleChange}
+						></textarea>
 					</div>
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
-						<textarea></textarea>
+						<textarea
+							name="howicanhelp"
+							// value={howicanhelp}
+							onChange={handleChange}
+						></textarea>
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
-						<textarea></textarea>
+						<textarea
+							name="services"
+							// value={services}
+							onChange={handleChange}
+						></textarea>
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
-						<textarea className="special"></textarea>
+						<textarea className="special"
+							name="certifications"
+							// value={certifications}
+							onChange={handleChange}
+						></textarea>
 					</div>
 				</div>
 				<div className="col-md-4">

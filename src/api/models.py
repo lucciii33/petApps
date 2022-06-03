@@ -11,6 +11,7 @@ class User(db.Model):
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     phone = db.Column(db.String(120), unique=False, nullable=True)
     rating = db.Column(db.String(120), nullable=True)
+    profiles = db.relationship('Profile', backref='profiles', lazy=True)
 
     def __repr__(self):
         return f'<User {self.email}>'
