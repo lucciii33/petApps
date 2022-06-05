@@ -6,7 +6,7 @@
     on that page only (the ones not reused in other pages).
 */
 .boximage {
-  background-color: aquamarine;
+  background-color: #c9e9b8;
   width: 230px;
   height: 631px;
   margin: 10px;
@@ -22,7 +22,7 @@
   width: 544px;
   height: 183px;
   border-radius: 8px;
-  background-color: aquamarine;
+  background-color: #c9e9b8;
   margin-top: 10px;
   display: grid;
   justify-content: center;
@@ -42,7 +42,7 @@ textarea {
   width: 544px;
   height: 111px;
   border-radius: 8px;
-  background-color: aquamarine;
+  background-color: #c9e9b8;
   margin-top: 10px;
   display: grid;
   justify-content: center;
@@ -52,7 +52,7 @@ textarea {
   width: 280px;
   height: 292px;
   border-radius: 8px;
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -60,7 +60,7 @@ textarea {
   width: 280px;
   height: 183px;
   border-radius: 8px;
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -68,7 +68,7 @@ textarea {
   width: 280px;
   height: 111px;
   border-radius: 8px;
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   margin-left: 128px;
   margin-top: 10px;
 }
@@ -79,19 +79,20 @@ textarea {
 
 .text1 {
   display: grid;
-  margin-top: 170px;
+  margin-top: 250px;
   margin-left: 100px;
 }
 .image1 {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 90vh;
   padding: 0;
   margin: 0;
 }
 /* ///////////////////////////////////////////////// */
 .mainpagebox {
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   padding: 0;
+  height: 100vh;
 }
 .greenbutton {
   margin-left: 100px;
@@ -102,7 +103,7 @@ textarea {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   margin: 15px;
 }
 
@@ -116,17 +117,67 @@ textarea {
   margin: 15px;
 }
 .bg-green {
-  background-color: #b4e197;
+  background-color: #c9e9b8;
 }
 
 /* ////////////////////////// */
 .bg-aboutus {
-  background-color: #b4e197;
+  background-color: #c9e9b8;
 }
 .squereaboutus {
   width: 200px;
   height: 200px;
   border-radius: 25px;
-  background-color: #b4e197;
+  background-color: #c9e9b8;
   margin: 15px;
+}
+
+.logo {
+  height: 110px;
+  width: 100px;
+}
+
+.linknav {
+  color: #c9e9b8;
+  margin: 10px;
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+/* 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ invento */
+.linknav {
+  /* RESET */
+  text-decoration: none;
+  line-height: 1;
+
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  padding: 5px 5px;
+  overflow: hidden;
+  color: #333;
+  vertical-align: bottom;
+  transition: color 0.3s ease-out;
+}
+
+.linknav::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: translateY(calc(100% - 2px));
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(60deg, #c9e9b8 0%, #c2e59c 100%);
+  transition: transform 0.25s ease-out;
+}
+
+.linknav:hover {
+  color: #fff;
+}
+.linknav:hover::before {
+  transform: translateY(0);
+  transition: transform 0.25s ease-out;
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import image1 from "../../img/image1.jpg";
+import image1 from "../../img/mainimage.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { CompOne } from "../component/mainpagecompone";
@@ -19,7 +19,7 @@ export const Home = () => {
 					</div>
 					<button className="btn btn-success greenbutton">LEARN MORE</button>
 				</div>
-				<div className="col-md-6">
+				<div className="col-md-6 imagebox" >
 					<img src={image1} className="image1"></img>
 				</div>
 			</div>

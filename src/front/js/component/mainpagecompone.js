@@ -10,9 +10,10 @@ export const CompOne = () => {
     return (
         <div className="">
             <div className="text-center mt-2">
+                <br />
                 <h2>Pelvic issues are way more common than you think</h2>
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center p-4">
                 <div className="circlemainpage position-relative">
                     <div className="position-absolute top-50 start-50 translate-middle">
 
@@ -47,6 +48,7 @@ export const CompOne = () => {
             <div className="text-center">
                 <h4>Pelvic issues are way more common than you think</h4>
             </div>
+            <br />
         </div>
     );
 };
