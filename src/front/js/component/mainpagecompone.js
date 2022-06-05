@@ -11,7 +11,7 @@ export const CompOne = () => {
         <div className="">
             <div className="text-center mt-2">
                 <br />
-                <h2>Pelvic issues are way more common than you think</h2>
+                <h2>connect with thousands of professionals <br /> for your pet </h2>
             </div>
             <div className="d-flex justify-content-center p-4">
                 <div className="circlemainpage position-relative">

@@ -12,14 +12,14 @@ export const Home = () => {
 	return (
 		<div className="">
 			<div className="d-flex row mainpagebox">
-				<div className="col-md-6">
-					<div className="text1">
-						<h1>petsaviur is your partner <br /> in pelvic care</h1>
-						<p>We connect you to pelvic care, so you feel confident from the inside out.</p>
+				<div className="col-md-6 col-sm-12">
+					<div className="text1 text-center">
+						<h1>Connect with thousands<br /> of professionals for your pet</h1>
+						<p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
 					</div>
 					<button className="btn btn-success greenbutton">LEARN MORE</button>
 				</div>
-				<div className="col-md-6 imagebox" >
+				<div className="col-md-6 imagebox col-sm-12" >
 					<img src={image1} className="image1"></img>
 				</div>
 			</div>

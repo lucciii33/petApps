@@ -15,22 +15,27 @@ export const Navbar = () => {
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<Link to="/aboutus" className="text-decoration-none">
 							<li className="">
-								<h5 className="linknav" href="#">home</h5>
+								<h5 className="linknav" href="#">Home</h5>
 							</li>
 						</Link>
 						<Link to="/aboutus" className="text-decoration-none">
 							<li className="">
-								<h5 className="linknav" href="#">about us</h5>
+								<h5 className="linknav" href="#">About us</h5>
 							</li>
 						</Link>
 						<Link to="/aboutus" className="text-decoration-none">
 							<li className="">
-								<h5 className="linknav" href="#">Helpers</h5>
+								<h5 className="linknav" href="#">Providers</h5>
 							</li>
 						</Link>
 						<Link to="/aboutus" className="text-decoration-none">
 							<li className="">
-								<h5 className="linknav" href="#">contact us</h5>
+								<h5 className="linknav" href="#">Contact us</h5>
+							</li>
+						</Link>
+						<Link to="/aboutus" className="text-decoration-none">
+							<li className="">
+								<h5 className="linknav" href="#">Users</h5>
 							</li>
 						</Link>
 					</ul>
