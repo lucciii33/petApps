@@ -113,7 +113,7 @@ def post_profiles():
     db.session.add(profile1)
     db.session.commit()
     
-    return jsonify(all_profiles.serialize()), 200
+    return jsonify(profile1.serialize()), 200
 
     
 

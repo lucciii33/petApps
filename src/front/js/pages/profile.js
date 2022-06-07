@@ -79,12 +79,14 @@ export const Profile = () => {
 				<div className="col-md-4">
 					<div className="editprofile">
 						<h3>About Me</h3>
+						<button className="btn btn-success" onClick={(aboutme) => actions.createProfile(aboutme)}>send to backend</button>
 						<textarea
 							name="aboutme"
 							// value={aboutme}
 							onChange={handleChange}
 						></textarea>
 					</div>
+					<br />
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
 						<textarea

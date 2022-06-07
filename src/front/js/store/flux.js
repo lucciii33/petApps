@@ -1,12 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			editProfile: []
+			profile: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 
-			editProfile: async (title, aboutme, howicanhelp, services, certifications, comments) => {
+			createProfile: async (title, aboutme, howicanhelp, services, certifications, comments) => {
 				try {
 					const edit = await fetch(process.env.BACKEND_URL + `/api/profile`,
 
@@ -21,12 +21,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (edit.ok) {
 						const resp = await edit.json()
 						localStorage.setItem('profile', JSON.stringify(resp))
+						setStore({ profile: resp })
 
 					}
 				} catch (error) {
 					throw Error("something went wrong")
 				}
-			}
+			},
+			getProfileData: () => {
+				fetch(process.env.BACKEND_URL + `/api/profile`)
+					.then(res => res.json())
+					.then(dataJson => setStore({ profile: dataJson }))
+					.catch(err => console.log(err));
+			},
 		}
 	};
 };
