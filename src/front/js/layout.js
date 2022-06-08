@@ -8,6 +8,7 @@ import { AboutUs } from "./pages/aboutus";
 import injectContext from "./store/appContext";
 import { CompOne } from "./component/mainpagecompone";
 import { CompTwo } from "./component/mainpagecomptwo";
+import { PractitionerHomePage } from "./pages/practitionerhomepage";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -34,6 +35,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/aboutus">
 							<AboutUs />
+						</Route>
+						<Route exact path="/practitionerhomepage">
+							<PractitionerHomePage />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

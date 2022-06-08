@@ -13,7 +13,7 @@ export const Navbar = () => {
 				</div>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-						<Link to="/aboutus" className="text-decoration-none">
+						<Link to="/" className="text-decoration-none">
 							<li className="">
 								<h5 className="linknav" href="#">Home</h5>
 							</li>
@@ -23,7 +23,7 @@ export const Navbar = () => {
 								<h5 className="linknav" href="#">About us</h5>
 							</li>
 						</Link>
-						<Link to="/aboutus" className="text-decoration-none">
+						<Link to="/practitionerhomepage" className="text-decoration-none">
 							<li className="">
 								<h5 className="linknav" href="#">Providers</h5>
 							</li>

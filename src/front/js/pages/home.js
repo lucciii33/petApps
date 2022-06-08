@@ -14,8 +14,8 @@ export const Home = () => {
 			<div className="d-flex row mainpagebox">
 				<div className="col-md-6 col-sm-12">
 					<div className="text1 text-center">
-						<h1>Connect with thousands<br /> of professionals for your pet</h1>
-						<p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+						<h2>Connect with thousands<br /> of professionals for your pet</h2>
+						<p>One click away from the best <strong className="strongtext">veterinarians, hospitals, grooming, trainings, daycares, stores and more.</strong> You can have access to any pet related service in your area. Book it here!.</p>
 					</div>
 					<button className="btn btn-success greenbutton">LEARN MORE</button>
 				</div>
