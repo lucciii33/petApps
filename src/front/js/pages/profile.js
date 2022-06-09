@@ -79,7 +79,6 @@ export const Profile = () => {
 				<div className="col-md-4">
 					<div className="editprofile">
 						<h3>About Me</h3>
-						<button className="btn btn-success" onClick={(aboutme) => actions.createProfile(aboutme)}>send to backend</button>
 						<textarea
 							name="aboutme"
 							// value={aboutme}
@@ -111,6 +110,14 @@ export const Profile = () => {
 							onChange={handleChange}
 						></textarea>
 					</div>
+					{/* <Link className="" to=""> */}
+					<button
+						type="button"
+						className="btn btn-primary form-control"
+						onClick={() => actions.addprofile(aboutme, howicanhelp, services, certifications,)}>
+						save
+					</button>
+					{/* </Link> */}
 				</div>
 				<div className="col-md-4">
 					<div className="availability"></div>
