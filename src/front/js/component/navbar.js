@@ -33,7 +33,7 @@ export const Navbar = () => {
 								<h5 className="linknav" href="#">Contact us</h5>
 							</li>
 						</Link>
-						<Link to="/aboutus" className="text-decoration-none">
+						<Link to="/userview" className="text-decoration-none">
 							<li className="">
 								<h5 className="linknav" href="#">Users</h5>
 							</li>
