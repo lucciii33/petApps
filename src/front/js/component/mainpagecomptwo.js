@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import image1 from "../../img/image1.jpg";
+import grooming from "../../img/grooming.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,9 @@ export const CompTwo = () => {
             </div>
             <br />
             <div className="d-flex row justify-content-center">
-                <div className="squeremainpage col-md-4"></div>
+                <div className="squeremainpage col-md-4 position-relative">
+                    <img src={grooming} className="grooming "></img>
+                </div>
                 <div className="squeremainpage col-md-4"></div>
                 <div className="squeremainpage col-md-4"></div>
             </div>
