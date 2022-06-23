@@ -6,9 +6,13 @@ import vet from "../../img/vet.jpg";
 
 export const Register = (props) => {
   const { store, actions } = useContext(Context);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const params = useParams();
+
+  const [register, setRegister] = useState({ email: "", password: "" });
+  const handleChange = e => {
+    setSingIn({ ...register, [e.target.name]: e.target.value });
+    console.log(register);
+  };
 
   return (
     <div className="jumbotron">
@@ -22,8 +26,9 @@ export const Register = (props) => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={register.email}
+            name="email"
+            onChange={handleChange}
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -40,14 +45,15 @@ export const Register = (props) => {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={register.password}
+            name="password"
+            onChange={handleChange}
           />
         </div>
         <button
           type="submit"
           className="btn btn-primary"
-          onClick={() => actions.registerUser(email, password)}
+          onClick={() => actions.registerUser(register.email, register.password)}
         >
           Submit
         </button>

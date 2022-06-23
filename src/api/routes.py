@@ -92,8 +92,8 @@ def create_token_doctors(id):
 
 
 
-@api.route('/user_doctors/register', methods=['POST'])
-def register_user():
+@api.route('/userdoctors/register', methods=['POST'])
+def register_user_doctors():
     body = request.json
 
     user_doctors = User(email=body['email'], password=body['password'] )
