@@ -11,6 +11,7 @@ import { CompTwo } from "./component/mainpagecomptwo";
 import { PractitionerHomePage } from "./pages/practitionerhomepage";
 import { UserView } from "./pages/userview";
 import { SingIn } from "./pages/singin";
+import { Register } from "./pages/register";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -40,6 +41,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/singin">
 							<SingIn />
+						</Route>
+						<Route exact path="/register">
+							<Register />
 						</Route>
 						<Route exact path="/practitionerhomepage">
 							<PractitionerHomePage />

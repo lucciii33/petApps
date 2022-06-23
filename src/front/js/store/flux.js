@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password }),
         };
-        fetch(`https://3001-lucciii33-petapps-lgih9tai7yq.ws-us47.gitpod.io/api/token`, opts)
+        fetch('https://3001-lucciii33-petapps-nhmbcqwnuys.ws-us49.gitpod.io/api/token', opts)
           .then((resp) => {
             if (resp.status === 200) {
               return resp.json();
@@ -73,6 +73,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => {
             console.error("there was an error!!!", error);
           });
+      },
+      registerUser: async (email, password) => {
+        const resp = await fetch(`${process.env.BACKEND_URL}/api/user/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (!resp.ok) throw "Problem with the response";
+
+        if (resp.status === 401) {
+          throw "Invalid credentials";
+        } else if (resp.status === 400) {
+          throw "Invalid email or password format";
+        }
       },
     },
   };

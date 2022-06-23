@@ -13,7 +13,7 @@ export const PractitionerHomePage = props => {
 			<div className="PHbg-green">
 				<h2 className="text-center p-3 pt-4">Grow your Practice with Elana</h2>
 				<p className="text-center pb-3">Together we can transform women's health</p>
-				<button className="btn btn-success d-block m-auto">REGISTER NOW</button>
+				<Link to='/register'><button className="btn btn-success d-block m-auto">REGISTER NOW</button></Link>
 			</div>
 			<div className="mb-2">
 				<h4 className="text-center p-2 pt-4">Elana can help you build a thriving practice</h4>
