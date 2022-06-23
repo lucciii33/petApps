@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       /////////////here is the token
       loginToken: async (email, password) => {
-        const resp = await fetch(`${process.env.BACKEND_URL}/api/signin/user`, {
+        const resp = await fetch(`${process.env.BACKEND_URL}/api/user/signin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })

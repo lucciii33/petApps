@@ -14,7 +14,7 @@ api = Blueprint('api', __name__)
 
 
 #create token for normal user authentication
-@api.route("/signin/user", methods=["POST"])
+@api.route("/user/signin", methods=["POST"])
 def create_token_user():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
@@ -28,7 +28,7 @@ def create_token_user():
     print(user.id)
     access_token = create_access_token(identity=user.id)
     
-    return jsonify({'access_token':access_token,'user': user.serialize()})
+    return jsonify({'access_token':access_token,'email': email, 'user': user.serialize()})
 
 @api.route('/user/register', methods=['POST'])
 def register_user():
@@ -69,6 +69,24 @@ def register_user():
     }
 
     return jsonify(payload), 200
+
+@api.route('/user/register/new', methods=['POST'])
+def register_user():
+    body = request.json
+
+    user = User(email=body['email'], password=body['password'] )
+    db.session.add(user)
+    db.session.commit()
+
+    return jsonify({"message" : "your user has been registered"}), 200
+
+@api.route('/user', methods=['GET'])
+def get_user():
+    
+    user_query = User.query.all()
+    all_users = list(map(lambda x: x.serialize(),  user_query))
+    
+    return jsonify(all_users), 200
 
 #here finisg user routes
 
