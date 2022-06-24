@@ -29,11 +29,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data.access_token;
 
       },
-      registerUser: async (email, password) => {
+      registerUser: async (email, password, first_name, last_name, phone) => {
         const resp = await fetch(`${process.env.BACKEND_URL}/api/user/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password })
+          body: JSON.stringify({ email, password, first_name, last_name, phone })
         });
 
         if (!resp.ok) throw "Problem with the response";

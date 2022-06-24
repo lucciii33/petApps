@@ -58,7 +58,7 @@ def register_user():
             'msg': 'The email address already exists. Please login to your account to continue.'
         }),409
 
-    user = User(email=email, first_name=fname, last_name=lname, password=password, is_active=True)
+    user = User(email=email, first_name=first_name, last_name=last_name, password=password, phone=phone)
 
     db.session.add(user)
     db.session.commit()
@@ -71,7 +71,7 @@ def register_user():
     return jsonify(payload), 200
 
 @api.route('/user/register/new', methods=['POST'])
-def register_user():
+def register_user_new():
     body = request.json
 
     user = User(email=body['email'], password=body['password'] )

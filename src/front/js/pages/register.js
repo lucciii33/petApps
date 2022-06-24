@@ -8,10 +8,10 @@ export const Register = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
-  const [register, setRegister] = useState({ email: "", password: "" });
+  const [register, setRegister] = useState({ email: "", password: "", first_name: "", last_name: "", phone: "" });
   const handleChange = e => {
-    setSingIn({ ...register, [e.target.name]: e.target.value });
-    console.log(register);
+    setRegister({ ...register, [e.target.name]: e.target.value });
+
   };
 
   return (
@@ -50,10 +50,58 @@ export const Register = (props) => {
             onChange={handleChange}
           />
         </div>
+        <div className="mb-3">
+          <label
+            for="exampleInputPassword1"
+            className="form-label"
+          >
+            First_name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleInputPassword1"
+            value={register.first_name}
+            name="first_name"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label
+            for="exampleInputPassword1"
+            className="form-label"
+          >
+            last name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleInputPassword1"
+            value={register.last_name}
+            name="last_name"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label
+            for="exampleInputPassword1"
+            className="form-label"
+          >
+            phone
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleInputPassword1"
+            value={register.phone}
+            name="phone"
+            onChange={handleChange}
+          />
+        </div>
         <button
           type="submit"
           className="btn btn-primary"
-          onClick={() => actions.registerUser(register.email, register.password)}
+          onClick={() => actions.registerUser(register.email, register.password, register.first_name, register.last_name, register.phone)}
         >
           Submit
         </button>
