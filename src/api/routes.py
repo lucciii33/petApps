@@ -28,7 +28,7 @@ def create_token_user():
     print(user.id)
     access_token = create_access_token(identity=user.id)
     
-    return jsonify({'access_token':access_token,'email': email, 'user': user.serialize()})
+    return jsonify({'access_token':access_token, 'user': user.serialize()})
 
 @api.route('/user/register', methods=['POST'])
 def register_user():

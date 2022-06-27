@@ -12,7 +12,7 @@ import { PractitionerHomePage } from "./pages/practitionerhomepage";
 import { UserView } from "./pages/userview";
 import { SingIn } from "./pages/singin";
 import { Register } from "./pages/register";
-import { RegisterInformation } from "./pages/registerinformation";
+import { SinginInformation } from "./pages/singinInformation";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -46,8 +46,8 @@ const Layout = () => {
 						<Route exact path="/register">
 							<Register />
 						</Route>
-						<Route exact path="/registerinformation">
-							<RegisterInformation />
+						<Route exact path="/singinInformation">
+							<SinginInformation />
 						</Route>
 						<Route exact path="/practitionerhomepage">
 							<PractitionerHomePage />

@@ -98,7 +98,7 @@ export const Register = (props) => {
             onChange={handleChange}
           />
         </div>
-        <Link to="/registerinformation"><button
+        <Link to="/singin"><button
           type="submit"
           className="btn btn-primary"
           onClick={() => actions.registerUser(register.email, register.password, register.first_name, register.last_name, register.phone)}

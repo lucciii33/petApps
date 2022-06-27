@@ -1,17 +1,18 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      loggId: [],
+      user: {},
     },
     actions: {
       /////////////here is the token
       loginToken: async (email, password) => {
+        console.log("function called")
         const resp = await fetch(`${process.env.BACKEND_URL}/api/user/signin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })
         });
-
+        console.log("after fetch")
         if (!resp.ok) throw "Problem with the response";
 
         if (resp.status === 401) {
@@ -23,8 +24,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await resp.json();
         console.log("data", data)
         // save your token in the sessionStorage
-        setStore({ loggId: data });
-        sessionStorage.setItem("jwt-token", data);
+        setStore({ user: data.user });
+        sessionStorage.setItem("jwt-token", data.access_token);
         // console.log(loggId)
         return data.access_token;
 
