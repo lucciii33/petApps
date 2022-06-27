@@ -12,6 +12,7 @@ import { PractitionerHomePage } from "./pages/practitionerhomepage";
 import { UserView } from "./pages/userview";
 import { SingIn } from "./pages/singin";
 import { Register } from "./pages/register";
+import { RegisterInformation } from "./pages/registerinformation";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -44,6 +45,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/register">
 							<Register />
+						</Route>
+						<Route exact path="/registerinformation">
+							<RegisterInformation />
 						</Route>
 						<Route exact path="/practitionerhomepage">
 							<PractitionerHomePage />
