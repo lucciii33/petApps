@@ -10,6 +10,14 @@ class UserDoctors(db.Model):
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     phone = db.Column(db.String(120), unique=False, nullable=True)
     rating = db.Column(db.String(120), nullable=True)
+    specialty = db.Column(db.String(120), unique=False, nullable=False)
+    sub_specialty = db.Column(db.String(120), unique=False, nullable=True)
+    years_of_experience = db.Column(db.Integer, unique=False)
+    aboutme = db.Column(db.String(520), unique=False, nullable=True)
+    howicanhelp = db.Column(db.String(520), unique=False, nullable=True)
+    services = db.Column(db.String(520), unique=False, nullable=True)
+    certifications = db.Column(db.String(520), unique=False, nullable=True)
+
     # profiles = db.relationship('Profile', backref='profiles', lazy=True)
 
     def __repr__(self):
@@ -28,11 +36,12 @@ class UserDoctors(db.Model):
         }
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(120), unique=True, nullable=False)
-    last_name = db.Column(db.String(120), unique=True, nullable=False)
+    first_name = db.Column(db.String(120), unique=False, nullable=False)
+    last_name = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    phone = db.Column(db.String(120), unique=False, nullable=True)
+    phone = db.Column(db.String(120), unique=False, nullable=False)
+    
 
     def __repr__(self):
         return f'<User {self.email}>'

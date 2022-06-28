@@ -8,6 +8,7 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+from hashlib import sha256
 
 api = Blueprint('api', __name__)
 
@@ -92,11 +93,17 @@ def get_user():
 
 #here start doctors route
 @api.route('/signin/doctors', methods=['POST'])
-def create_token_doctors(id):
+def create_token_doctors():
+
+    h = sha256()
 
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    user_doctors = User.query.filter_by(email=email, password=password ).first()
+    
+
+    h.update(password.encode('utf-8'))
+    hash = h.hexdigest()
+    user_doctors = UserDoctors.query.filter_by(email=email, password=hash ).first()
 
 
     if user_doctors is None:
@@ -104,7 +111,7 @@ def create_token_doctors(id):
         return jsonify({"msg": "Bad username or password"}), 401
     
     print(user_doctors.id)
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=user_doctors.id)
     
     return jsonify({'access_token':access_token, 'user': user_doctors.serialize()})
 
@@ -112,13 +119,58 @@ def create_token_doctors(id):
 
 @api.route('/userdoctors/register', methods=['POST'])
 def register_user_doctors():
-    body = request.json
 
-    user_doctors = User(email=body['email'], password=body['password'] )
-    db.session.add(user_doctors)
+    h = sha256()
+
+    body = request.json # get the request body content
+    email = request.json.get('email')
+    full_name = request.json.get('full_name')
+    phone = request.json.get('phone')
+    password = request.json.get('password')
+    specialty = request.json.get('specialty')
+    sub_specialty = request.json.get('sub_specialty')
+    years_of_experience = request.json.get('years_of_experience')
+
+    h.update(password.encode('utf-8'))
+    hash = h.hexdigest()
+    print("hash!!!!!!!!!!!",hash)
+    
+    if body is None:
+        return "The request body is null", 400
+    if not email:
+        return 'You need to enter an email',400
+    if not  full_name:
+        return 'You need to enter an fname',400
+    if not phone:
+        return 'You need to enter an lname',400
+    if not password:
+        return 'You need to enter a password', 400
+    if not  specialty:
+        return 'You need to enter an fname',400
+    # if not sub_specialty:
+    #     return 'You need to enter an lname',400
+    if not years_of_experience:
+        return 'You need to enter a password', 400
+
+    
+    check_user = UserDoctors.query.filter_by(email=email).first()
+
+    if check_user is not None:
+        return jsonify({
+            'msg': 'The email address already exists. Please login to your account to continue.'
+        }),409
+
+    doctor = UserDoctors(email=email, full_name=full_name, password=hash, phone=phone, specialty=specialty, sub_specialty=sub_specialty, years_of_experience=years_of_experience, is_active=True )
+
+    db.session.add(doctor)
     db.session.commit()
+   
+    payload = {
+        'msg': 'Your account has been registered successfully.',
+        'doctor': doctor.serialize()
+    }
 
-    return jsonify({"message" : "your user has been registered"}), 200
+    return jsonify(payload), 200
 
 #SignUp and Login Methods for doctors ---------------------------------------------------
 
@@ -126,106 +178,11 @@ def register_user_doctors():
 
 #User Methods ---------------------------------------------------------------
 
-#Get User by ID
-@api.route('/user/<id>', methods=['GET'])
-def get_specific_user(id):
-
-    user_query = User.query.get(id)
-
-    return jsonify(
-        user_query.serialize()
-    ), 200
-
-#Update UserHelpers Profile
-# @api.route('/user/helpers/<id>', methods=['PUT'])
-# def change_helper_profile(id):
+#Get Userdoctors
+@api.route('/userdoctors', methods=['GET'])
+def get_userDoctors():
     
-#     my_profile = User.query.get(id)
-
-#     body = request.get_json()
-
-#     my_profile.full_name = body["full_name"]
-#     my_profile.email = body["email"]
-#     my_profile.phone = body["phone"]
-
-#     db.session.commit()
-
-#     profile_query = User.query.get(id)
-
-#     if profile_query.full_name == body["full_name"]:
-#         return jsonify(profile_query.serialize()), 200
-#     raise APIException("Update Failed")
-
-
-
-
-
-
-# #get UserHelpers Profile
-# @api.route('/profile', methods=['GET'])
-# def get_profiles():
-#     profile_query = Profile.query.all()
-#     all_profiles = list(map(lambda x: x.serialize(), profile_query))
-#     response_body = {
-#         "msg": "Hello, this is your GET /user response "
-#     }
-
-#     return jsonify(all_profiles), 200
-
-# @api.route('/profile', methods=['POST'])
-# def post_profiles():
-#     body = request.get_json()
-
-#     profile1 = Profile(title= body['title'], aboutme= body['aboutme'], howicanhelp= body['howicanhelp'], services=body['services'], certifications=body['certifications'], comments=['comments'])
-#     db.session.add(profile1)
-#     db.session.commit()
+    user_query = UserDoctors.query.all()
+    all_usersdoctors = list(map(lambda x: x.serialize(),  user_query))
     
-#     return jsonify(profile1.serialize()), 200
-
-    
-
-# @api.route('/profile/<int:id>', methods=['PUT'])
-# def edit_profiles(id):
-#     body = request.get_json()
-
-#     profile_id = Profile.query.get(id)
-#     if profile_id is None:
-#         raise APIException('User not found', status_code=404)
-
-#     if "title" in body:
-#         profile_id.title = body["title"]
-#     if "aboutme" in body:
-#         profile_id.aboutme= body["aboutme"]
-#     if "howicanhelp" in body:
-#         profile_id.howicanhelp = body["howicanhelp"]
-#     if "services" in body:
-#         profile_id.services= body["services"]
-#     if "certifications" in body:
-#         profile_id.certifications = body["certifications"]
-#     if "comments" in body:
-#         profile_id.comments= body["comments"]
-
-
-#         db.session.commit()
-
-#     profile_query = Profile.query.all()
-#     all_profiles = list(map(lambda x: x.serialize(), profile_query))
-
-#     return jsonify(all_profiles), 200
-
-    
-
-# @api.route('/profile/<int:id>', methods=['DELETE'])
-# def delete_todos(id):
-#     profile_id = Profile.query.get(id)
-#     if profile_id is None:
-#         raise APIException('User not found', status_code=404)
-   
-#     db.session.delete(profile_id)
-#     db.session.commit()
-
-    
-#     profile_query = Profile.query.all()
-#     all_profiles = list(map(lambda x: x.serialize(), profile_query))
-
-#     return jsonify(all_profiles), 200
+    return jsonify(all_usersdoctors), 200
