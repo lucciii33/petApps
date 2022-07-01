@@ -13,6 +13,9 @@ import { UserView } from "./pages/userview";
 import { SingIn } from "./pages/singin";
 import { Register } from "./pages/register";
 import { SinginInformation } from "./pages/singinInformation";
+import { RegisterDoctor } from "./pages/registerDoctor";
+import { singInDoctor } from "./pages/singinDoctor";
+
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";

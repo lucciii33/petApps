@@ -15,6 +15,7 @@ export const UserView = props => {
 					<h1 className="p-4 col-sm">We’re so glad you’re here. </h1>
 					<h4 className="introtitle p-0 col-sm sm-mt-2">Elana is changing a generation of women’s health, putting you in control <br />
 						of managing your pelvic health, how, and when, it suits you.</h4>
+					<Link to='/register'><button className="btn btn-success d-block m-auto">REGISTER NOW</button></Link>
 				</div>
 			</div>
 			<div className="d-flex row">
