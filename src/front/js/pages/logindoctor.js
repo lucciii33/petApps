@@ -4,17 +4,17 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import vet from "../../img/vet.jpg";
 
-export const SingInDoctors = (props) => {
+export const LoginDoctor = (props) => {
 
   const { store, actions } = useContext(Context);
   const params = useParams();
-  const [singIn, setSingIn] = useState({ password: "", email: "", });
+  const [singInDoctor, setSingInDoctor] = useState({ password: "", email: "", });
   const handleChange = e => {
-    setSingIn({ ...singIn, [e.target.name]: e.target.value });
+    setSingInDoctor({ ...singInDoctor, [e.target.name]: e.target.value });
   };
-  console.log(singIn);
-  console.log(singIn.email)
-  console.log(singIn.password)
+  // console.log(singIn);
+  // console.log(singIn.email)
+  // console.log(singIn.password)
 
 
   return (
@@ -30,7 +30,7 @@ export const SingInDoctors = (props) => {
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           name="email"
-          value={singIn.email}
+          value={singInDoctor.email}
           onChange={handleChange}
         />
         <div id="emailHelp" className="form-text">
@@ -49,13 +49,13 @@ export const SingInDoctors = (props) => {
           className="form-control"
           id="exampleInputPassword1"
           name="password"
-          value={singIn.password}
+          value={singInDoctor.password}
           onChange={handleChange}
         />
       </div>
       <Link to="/singinInformation"><button
         className="btn btn-primary"
-        onClick={() => actions.loginToken(singIn.email, singIn.password)}
+        onClick={() => actions.loginTokenDoctor(singInDoctor.email, singInDoctor.password)}
       >
         Submit
       </button></Link>
@@ -63,6 +63,6 @@ export const SingInDoctors = (props) => {
   );
 };
 
-SingInDoctors.propTypes = {
+LoginDoctor.propTypes = {
   match: PropTypes.object,
 };

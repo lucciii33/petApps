@@ -14,8 +14,7 @@ import { SingIn } from "./pages/singin";
 import { Register } from "./pages/register";
 import { SinginInformation } from "./pages/singinInformation";
 import { RegisterDoctor } from "./pages/registerDoctor";
-import { singInDoctor } from "./pages/singinDoctor";
-
+import { LoginDoctor } from "./pages/logindoctor";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -45,6 +44,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/singin">
 							<SingIn />
+						</Route>
+						<Route exact path="/registerDoctor">
+							<RegisterDoctor />
+						</Route>
+						<Route exact path="/logindoctor">
+							<LoginDoctor />
 						</Route>
 						<Route exact path="/register">
 							<Register />

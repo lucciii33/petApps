@@ -16,6 +16,7 @@ export const Register = (props) => {
 
   return (
     <div className="jumbotron">
+
       <form>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">

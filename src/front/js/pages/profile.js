@@ -21,7 +21,7 @@ export const Profile = () => {
 						<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile "></img>
 					</div>
 					<div className="sectionprofile">
-						<h5 className="mb-2">Dr. Susana Horia </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+						<h5 className="mb-2">{store.userDoctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
 
 						<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div className="modal-dialog">
@@ -61,13 +61,13 @@ export const Profile = () => {
 
 
 						<h6 className="mb-2">practice name</h6>
-						<p></p>
+						<p>{store.userDoctor.full_name}</p>
 						<h6 className="mb-2">Specialty</h6>
-						<p>are1</p>
+						<p>{store.userDoctor.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>
-						<p>area2</p>
+						<p>{store.userDoctor.Sub_specialty}</p>
 						<h6 className="mb-2">Years of Experience</h6>
-						<p>area3</p>
+						<p>{store.userDoctor.years_of_experience}</p>
 						<div className="d-flex mb-2">
 							<h6>need a video call?</h6>
 							<i class="fas fa-video ms-3"></i>

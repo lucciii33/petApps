@@ -48,6 +48,7 @@ export const PractitionerHomePage = props => {
 					</div>
 				</div>
 			</div>
+			<Link to='/logindoctor'><button className="btn btn-success d-block m-auto">LOGIN</button></Link>
 		</div>
 	);
 };
