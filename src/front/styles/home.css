@@ -113,8 +113,8 @@ textarea {
   width: 200px;
   height: 200px;
   border-radius: 25px;
-  background-color: white;
-  margin: 15px;
+  margin: 70px;
+  /* margin-right: 155px; */
 }
 
 .bg-green {

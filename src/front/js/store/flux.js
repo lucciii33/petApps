@@ -83,7 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await resp.json();
         console.log("data", data)
         // save your token in the sessionStorage
-        setStore({ userDoctor: data });
+        setStore({ userDoctor: data.user });
         sessionStorage.setItem("jwt-token", data.access_token);
         // console.log(loggId)
         return data.access_token;

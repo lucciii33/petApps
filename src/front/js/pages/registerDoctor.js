@@ -43,7 +43,7 @@ export const RegisterDoctor = (props) => {
           full_name
         </label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           id="exampleInputPassword1"
           value={registerDoctor.full_name}

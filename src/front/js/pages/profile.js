@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { Context } from "../store/appContext";
 
 export const Profile = () => {
+	const params = useParams();
 	const { store, actions } = useContext(Context);
 	const [inputValue, setInputValue] = useState({ aboutme: "", howicanhelp: "", services: "", certifications: "" });
 	const handleChange = e => {
@@ -12,7 +14,7 @@ export const Profile = () => {
 	return (
 		<div className="container">
 			<div>
-				<h2>Welcome, Susana Horia</h2>
+				<h2>Welcome, {store.userDoctor.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
@@ -127,4 +129,8 @@ export const Profile = () => {
 			</div>
 		</div>
 	);
+};
+
+Profile.propTypes = {
+	match: PropTypes.object
 };

@@ -147,8 +147,8 @@ def register_user_doctors():
         return 'You need to enter a password', 400
     if not  specialty:
         return 'You need to enter an fname',400
-    # if not sub_specialty:
-    #     return 'You need to enter an lname',400
+    if not sub_specialty:
+         return 'You need to enter an lname',400
     if not years_of_experience:
         return 'You need to enter a password', 400
 
