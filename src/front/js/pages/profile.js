@@ -67,7 +67,7 @@ export const Profile = () => {
 						<h6 className="mb-2">Specialty</h6>
 						<p>{store.userDoctor.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>
-						<p>{store.userDoctor.Sub_specialty}</p>
+						<p>{store.userDoctor.sub_specialty}</p>
 						<h6 className="mb-2">Years of Experience</h6>
 						<p>{store.userDoctor.years_of_experience}</p>
 						<div className="d-flex mb-2">

@@ -186,3 +186,40 @@ def get_userDoctors():
     all_usersdoctors = list(map(lambda x: x.serialize(),  user_query))
     
     return jsonify(all_usersdoctors), 200
+
+#here we are going to start the put method so we can edit the doctors profile
+
+@api.route('/userdoctors/profile/<int:id>', methods=['PUT'])
+def edit_profile(id):
+
+    body = request.get_json()
+
+    profile_id = UserDoctors.query.get(id)
+    if profile_id is None:
+        raise APIException('Profile no found', status_code=404)
+
+    if "email" in body:
+        profile_id.email = body["email"]
+    if "full_name" in body:
+        profile_id.full_name = body["full_name"]
+    if "is_active" in body:
+        profile_id.is_active = body["is_active"]
+    if "phone" in body:
+        profile_id.phone = body["phone"]
+    if "specialty" in body:
+        profile_id.specialty = body["specialty"]
+    if "sub_specialty" in body:
+        profile_id.sub_specialty = body["sub_specialty"]
+    if "years_of_experience" in body:
+        profile_id.years_of_experience = body["years_of_experience"]
+
+    doctor = UserDoctors(email=body["email"],full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"] )
+
+
+    db.session.add(doctor)
+    db.session.commit()
+
+    profiles = UserDoctors.query.all()
+    all_profiles = list(map(lambda x: x.serialize(), profiles))
+
+    return jsonify(all_profiles), 200
