@@ -5,7 +5,7 @@ db = SQLAlchemy()
 class UserDoctors(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(120), nullable=True)
-    email = db.Column(db.String(120), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=True)
     is_active = db.Column(db.Boolean(), unique=False, nullable=True)
     phone = db.Column(db.String(120), unique=False, nullable=True)

@@ -213,13 +213,10 @@ def edit_profile(id):
     if "years_of_experience" in body:
         profile_id.years_of_experience = body["years_of_experience"]
 
-    doctor = UserDoctors(email=body["email"],full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"] )
-
-
-    db.session.add(doctor)
+    
+    UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))
     db.session.commit()
 
-    profiles = UserDoctors.query.all()
-    all_profiles = list(map(lambda x: x.serialize(), profiles))
+    updatedUsersDoctor = UserDoctors.query.get(id)
 
-    return jsonify(all_profiles), 200
+    return jsonify({ 'doctor': updatedUsersDoctor.serialize()})
