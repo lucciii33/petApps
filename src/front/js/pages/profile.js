@@ -7,11 +7,18 @@ import { Context } from "../store/appContext";
 export const Profile = () => {
 	const params = useParams();
 	const { store, actions } = useContext(Context);
-	const [inputValue, setInputValue] = useState({ full_name: "", email: "", specialty: "", sub_specialty: "", years_of_experience: "" });
+	// const [currentDoctor, setCurrentDoctor] = useState("");
+	const [inputValue, setInputValue] = useState({ full_name: "", email: "", phone: "", specialty: "", sub_specialty: "", years_of_experience: "" });
 	const handleChange = e => {
 		setInputValue({ ...inputValue, [e.target.name]: e.target.value });
 	};
 	const doctor = store.userDoctor
+
+	// useEffect(async () => {
+	// 	// await actions.getDataDoctors();
+	// 	setCurrentDoctor(await actions.getDataDoctorsbyId((params.id)));
+	// 	// await actions.updateDoctorsProfile();
+	// }, [])
 	return (
 		<div className="container">
 			<div>
@@ -46,6 +53,11 @@ export const Profile = () => {
 													value={inputValue.email}
 													onChange={handleChange}></input>
 											</label>
+											<label className="labelsingup text-muted">Phone
+												<input name="phone"
+													value={inputValue.phone}
+													onChange={handleChange}></input>
+											</label>
 											<label className="labelsingup text-muted">Your Specialty
 												<input name="specialty"
 													value={inputValue.specialty}
@@ -68,6 +80,7 @@ export const Profile = () => {
 										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 										<button type="button" className="btn btn-primary" onClick={() => {
 											actions.updateDoctorsProfile(inputValue.email, inputValue.full_name, inputValue.phone, inputValue.specialty, inputValue.sub_specialty, inputValue.years_of_experience, doctor.id)
+
 										}}>Save changes</button>
 									</div>
 								</div>
@@ -75,8 +88,12 @@ export const Profile = () => {
 						</div>
 
 
+						<h6 className="mb-2">email</h6>
+						<p>{doctor.email}</p>
 						<h6 className="mb-2">practice name</h6>
 						<p>{doctor.full_name}</p>
+						<h6 className="mb-2">phone</h6>
+						<p>{doctor.phone}</p>
 						<h6 className="mb-2">Specialty</h6>
 						<p>{doctor.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>

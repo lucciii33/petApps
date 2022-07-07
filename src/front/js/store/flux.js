@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       userDoctor: {},
+      allDoctors: {},
+      doctorsbyId: {},
     },
     actions: {
       /////////////here is the token
@@ -90,22 +92,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       },
 
-      updateDoctorsProfile: (email, full_name, phone, specialty, sub_specialty, years_of_experience, id) => {
+      updateDoctorsProfile: async (email, full_name, phone, specialty, sub_specialty, years_of_experience, id) => {
         const store = getStore()
-        fetch(`${process.env.BACKEND_URL}/api/userdoctors/profile/${id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email, full_name, phone, specialty, sub_specialty, years_of_experience
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            setStore({ userDoctor: data.user });
+        try {
+          const respon = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/profile/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email, full_name, phone, specialty, sub_specialty, years_of_experience
+            }),
           })
-          .catch((err) => console.log(err));
+          if (respon.ok) {
+            const data = respon.json()
+            setStore({ userDoctor: data.user });
+          }
+
+        }
+        catch (error) {
+          throw Error("not working")
+        }
+      },
+
+      getDataDoctors: async () => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors`);
+          if (response.ok) {
+            const data = await response.json();
+            setStore({ allDoctors: data.user })
+            console.log(data)
+          }
+        } catch (error) {
+          throw Error(error);
+        }
+      },
+
+      getDataDoctorsbyId: async (id) => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/${id}`);
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            // setStore({ allDoctors: data.user })
+            return true
+          }
+        } catch (error) {
+          throw Error(error);
+        }
       },
 
 

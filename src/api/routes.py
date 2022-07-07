@@ -187,6 +187,13 @@ def get_userDoctors():
     
     return jsonify(all_usersdoctors), 200
 
+#here you can get all doctors by id
+
+@api.route('/userdoctors/<int:id>', methods=['GET'])
+def get_single_user(id):
+    single_user = UserDoctors.query.get(id)
+    return jsonify(single_user.serialize()), 200
+
 #here we are going to start the put method so we can edit the doctors profile
 
 @api.route('/userdoctors/profile/<int:id>', methods=['PUT'])
