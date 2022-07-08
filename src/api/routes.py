@@ -111,6 +111,7 @@ def create_token_doctors():
         return jsonify({"msg": "Bad username or password"}), 401
     
     print(user_doctors.id)
+    print(user_doctors)
     access_token = create_access_token(identity=user_doctors.id)
     
     return jsonify({'access_token':access_token, 'user': user_doctors.serialize()})
@@ -201,7 +202,7 @@ def edit_profile(id):
 
     body = request.get_json()
 
-    profile_id = UserDoctors.query.get(id)
+    profile_id = UserDoctors.query.filter_by(id=id).one_or_none()
     if profile_id is None:
         raise APIException('Profile no found', status_code=404)
 
@@ -221,9 +222,9 @@ def edit_profile(id):
         profile_id.years_of_experience = body["years_of_experience"]
 
     
-    UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))
+    # UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))
     db.session.commit()
 
-    updatedUsersDoctor = UserDoctors.query.get(id)
+    # updatedUsersDoctor = UserDoctors.query.get(id)
 
-    return jsonify({ 'doctor': updatedUsersDoctor.serialize()})
+    return jsonify( profile_id.serialize())

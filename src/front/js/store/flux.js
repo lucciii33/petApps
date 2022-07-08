@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       },
 
-      updateDoctorsProfile: async (email, full_name, phone, specialty, sub_specialty, years_of_experience, id) => {
+      updateDoctorsProfile: async (doctorInfo, id) => {
         const store = getStore()
         try {
           const respon = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/profile/${id}`, {
@@ -101,12 +101,12 @@ const getState = ({ getStore, getActions, setStore }) => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              email, full_name, phone, specialty, sub_specialty, years_of_experience
+              doctorInfo
             }),
           })
           if (respon.ok) {
-            const data = respon.json()
-            setStore({ userDoctor: data.user });
+            const data = await respon.json()
+            setStore({ userDoctor: data });
           }
 
         }
