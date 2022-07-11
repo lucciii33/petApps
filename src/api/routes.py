@@ -173,7 +173,7 @@ def register_user_doctors():
             'msg': 'The email address already exists. Please login to your account to continue.'
         }),409
 
-    doctor = UserDoctors(email=email, full_name=full_name, password=hash, phone=phone, specialty=specialty, sub_specialty=sub_specialty, years_of_experience=years_of_experience, is_active=True )
+    doctor = UserDoctors(email=email, full_name=full_name, password=hash, phone=phone, specialty=specialty, sub_specialty=sub_specialty, years_of_experience=years_of_experience,aboutme=aboutme,howicanhelp=howicanhelp,services=services,certifications=certifications  )
 
     db.session.add(doctor)
     db.session.commit()
