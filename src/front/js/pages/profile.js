@@ -22,7 +22,7 @@ export const Profile = () => {
 	return (
 		<div className="container">
 			<div>
-				<h2>{doctoroctor.full_name}</h2>
+				<h2>{doctor.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
@@ -117,7 +117,7 @@ export const Profile = () => {
 						// onChange={handleChange}
 						// {...store.userDoctor.aboutme}
 						></textarea>
-						<p>{doctor.aboutme}</p>
+						{/* <p>{doctor.aboutme}</p> */}
 					</div>
 					<br />
 					<div className="editprofile">
@@ -127,7 +127,7 @@ export const Profile = () => {
 							// value={howicanhelp}
 							onChange={handleChange}
 						></textarea>
-						<p>{doctor.howicanhelp}</p>
+						{/* <p>{doctor.howicanhelp}</p> */}
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
@@ -136,7 +136,7 @@ export const Profile = () => {
 							// value={services}
 							onChange={handleChange}
 						></textarea>
-						<p>{doctor.services}</p>
+						{/* <p>{doctor.services}</p> */}
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
@@ -145,7 +145,7 @@ export const Profile = () => {
 							// value={certifications}
 							onChange={handleChange}
 						></textarea>
-						<p>{doctor.certifications}</p>
+						{/* <p>{doctor.certifications}</p> */}
 					</div>
 					{/* <Link className="" to=""> */}
 					<button
