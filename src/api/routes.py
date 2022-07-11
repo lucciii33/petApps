@@ -130,6 +130,10 @@ def register_user_doctors():
     specialty = request.json.get('specialty')
     sub_specialty = request.json.get('sub_specialty')
     years_of_experience = request.json.get('years_of_experience')
+    aboutme = request.json.get('aboutme')
+    howicanhelp = request.json.get('howicanhelp')
+    services = request.json.get('services')
+    certifications = request.json.get('certifications')
 
     h.update(password.encode('utf-8'))
     hash = h.hexdigest()
@@ -147,10 +151,18 @@ def register_user_doctors():
         return 'You need to enter a password', 400
     if not  specialty:
         return 'You need to enter an fname',400
-    # if not sub_specialty:
-    #     return 'You need to enter an lname',400
+    if not  sub_specialty:
+        return 'You need to enter an fname',400
     if not years_of_experience:
         return 'You need to enter a password', 400
+    if not aboutme:
+         return 'You need to enter an email',400
+    if not  howicanhelp:
+         return 'You need to enter an fname',400
+    if not services:
+         return 'You need to enter an lname',400
+    if not certifications:
+         return 'You need to enter a password', 400
 
     
     check_user = UserDoctors.query.filter_by(email=email).first()
@@ -173,7 +185,6 @@ def register_user_doctors():
     return jsonify(payload), 200
 
 #SignUp and Login Methods for doctors ---------------------------------------------------
-
 
 
 #User Methods ---------------------------------------------------------------

@@ -8,7 +8,7 @@ export const RegisterDoctor = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
-  const [registerDoctor, setRegisterDoctor] = useState({ email: "", full_name: "", phone: "", password: "", specialty: "", sub_specialty: "", years_of_experience: "" });
+  const [registerDoctor, setRegisterDoctor] = useState({ email: "", full_name: "", phone: "", password: "", specialty: "", sub_specialty: "", years_of_experience: "", aboutme: "", howicanhelp: "", services: "", certifications: "" });
   const handleChange = e => {
     setRegisterDoctor({ ...registerDoctor, [e.target.name]: e.target.value });
 
@@ -43,7 +43,7 @@ export const RegisterDoctor = (props) => {
           full_name
         </label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           id="exampleInputPassword1"
           value={registerDoctor.full_name}
@@ -75,7 +75,7 @@ export const RegisterDoctor = (props) => {
           Password
         </label>
         <input
-          type="text"
+          type="password"
           className="form-control"
           id="exampleInputPassword1"
           value={registerDoctor.password}
@@ -131,10 +131,74 @@ export const RegisterDoctor = (props) => {
           onChange={handleChange}
         />
       </div>
+      <div className="mb-3">
+        <label
+          for="exampleInputPassword1"
+          className="form-label"
+        >
+          aboutme
+        </label>
+        <textarea
+          type="text"
+          className="form-control"
+          id="exampleInputPassword1"
+          value={registerDoctor.aboutme}
+          name="aboutme"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label
+          for="exampleInputPassword1"
+          className="form-label"
+        >
+          howicanhelp
+        </label>
+        <textarea
+          type="text"
+          className="form-control"
+          id="exampleInputPassword1"
+          value={registerDoctor.howicanhelp}
+          name="howicanhelp"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label
+          for="exampleInputPassword1"
+          className="form-label"
+        >
+          services
+        </label>
+        <textarea
+          type="text"
+          className="form-control"
+          id="exampleInputPassword1"
+          value={registerDoctor.services}
+          name="services"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label
+          for="exampleInputPassword1"
+          className="form-label"
+        >
+          certifications
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="exampleInputPassword1"
+          value={registerDoctor.certifications}
+          name="certifications"
+          onChange={handleChange}
+        />
+      </div>
       <Link to="/logindoctor"><button
         type="submit"
         className="btn btn-primary"
-        onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience,)}
+        onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience, registerDoctor.aboutme, registerDoctor.howicanhelp, registerDoctor.services, registerDoctor.certifications)}
       >
         Submit
       </button></Link>

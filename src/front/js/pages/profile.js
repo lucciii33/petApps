@@ -12,7 +12,7 @@ export const Profile = () => {
 	return (
 		<div className="container">
 			<div>
-				<h2>Welcome, Susana Horia</h2>
+				<h2>{store.userDoctor.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
@@ -80,10 +80,12 @@ export const Profile = () => {
 					<div className="editprofile">
 						<h3>About Me</h3>
 						<textarea
-							name="aboutme"
-							// value={aboutme}
-							onChange={handleChange}
+						// name="aboutme"
+						// // value={aboutme}
+						// onChange={handleChange}
+						// {...store.userDoctor.aboutme}
 						></textarea>
+						<p>{store.userDoctor.aboutme}</p>
 					</div>
 					<br />
 					<div className="editprofile">
@@ -93,6 +95,7 @@ export const Profile = () => {
 							// value={howicanhelp}
 							onChange={handleChange}
 						></textarea>
+						<p>{store.userDoctor.howicanhelp}</p>
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
@@ -101,6 +104,7 @@ export const Profile = () => {
 							// value={services}
 							onChange={handleChange}
 						></textarea>
+						<p>{store.userDoctor.services}</p>
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
@@ -109,6 +113,7 @@ export const Profile = () => {
 							// value={certifications}
 							onChange={handleChange}
 						></textarea>
+						<p>{store.userDoctor.certifications}</p>
 					</div>
 					{/* <Link className="" to=""> */}
 					<button

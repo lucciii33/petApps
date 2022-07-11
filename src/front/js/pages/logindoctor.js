@@ -53,7 +53,7 @@ export const LoginDoctor = (props) => {
           onChange={handleChange}
         />
       </div>
-      <Link to="/singinInformation"><button
+      <Link to="/profile"><button
         className="btn btn-primary"
         onClick={() => actions.loginTokenDoctor(singInDoctor.email, singInDoctor.password)}
       >
