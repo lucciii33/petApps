@@ -6,8 +6,8 @@ class UserDoctors(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(120), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    password = db.Column(db.String(80), unique=False, nullable=True)
+    is_active = db.Column(db.Boolean(), unique=False, nullable=True)
     phone = db.Column(db.String(120), unique=False, nullable=True)
     rating = db.Column(db.String(120), nullable=True)
     specialty = db.Column(db.String(120), unique=False, nullable=False)
@@ -31,6 +31,9 @@ class UserDoctors(db.Model):
             "phone": self.phone,
             "is_active": self.is_active,
             "rating": self.rating,
+            "specialty": self.specialty,
+            "sub_specialty": self.sub_specialty,
+            "years_of_experience": self.years_of_experience
 
             # do not serialize the password, its a security breach
         }

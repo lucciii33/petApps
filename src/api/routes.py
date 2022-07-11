@@ -111,6 +111,7 @@ def create_token_doctors():
         return jsonify({"msg": "Bad username or password"}), 401
     
     print(user_doctors.id)
+    print(user_doctors)
     access_token = create_access_token(identity=user_doctors.id)
     
     return jsonify({'access_token':access_token, 'user': user_doctors.serialize()})
@@ -197,3 +198,44 @@ def get_userDoctors():
     all_usersdoctors = list(map(lambda x: x.serialize(),  user_query))
     
     return jsonify(all_usersdoctors), 200
+
+#here you can get all doctors by id
+
+@api.route('/userdoctors/<int:id>', methods=['GET'])
+def get_single_user(id):
+    single_user = UserDoctors.query.get(id)
+    return jsonify(single_user.serialize()), 200
+
+#here we are going to start the put method so we can edit the doctors profile
+
+@api.route('/userdoctors/profile/<int:id>', methods=['PUT'])
+def edit_profile(id):
+
+    body = request.get_json()
+
+    profile_id = UserDoctors.query.filter_by(id=id).one_or_none()
+    if profile_id is None:
+        raise APIException('Profile no found', status_code=404)
+
+    if "email" in body:
+        profile_id.email = body["email"]
+    if "full_name" in body:
+        profile_id.full_name = body["full_name"]
+    if "is_active" in body:
+        profile_id.is_active = body["is_active"]
+    if "phone" in body:
+        profile_id.phone = body["phone"]
+    if "specialty" in body:
+        profile_id.specialty = body["specialty"]
+    if "sub_specialty" in body:
+        profile_id.sub_specialty = body["sub_specialty"]
+    if "years_of_experience" in body:
+        profile_id.years_of_experience = body["years_of_experience"]
+
+    
+    # UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))
+    db.session.commit()
+
+    # updatedUsersDoctor = UserDoctors.query.get(id)
+
+    return jsonify( profile_id.serialize())

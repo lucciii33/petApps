@@ -25,7 +25,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="email"
           className="form-control"
-          id="exampleInputEmail1"
           aria-describedby="emailHelp"
           value={registerDoctor.email}
           name="email"
@@ -45,7 +44,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.full_name}
           name="full_name"
           onChange={handleChange}
@@ -61,7 +59,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.phone}
           name="phone"
           onChange={handleChange}
@@ -77,7 +74,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="password"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.password}
           name="password"
           onChange={handleChange}
@@ -93,7 +89,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.specialty}
           name="specialty"
           onChange={handleChange}
@@ -109,7 +104,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.sub_specialty}
           name="sub_specialty"
           onChange={handleChange}
@@ -125,7 +119,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.years_of_experience}
           name="years_of_experience"
           onChange={handleChange}
@@ -138,10 +131,9 @@ export const RegisterDoctor = (props) => {
         >
           aboutme
         </label>
-        <textarea
+        <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.aboutme}
           name="aboutme"
           onChange={handleChange}
@@ -154,10 +146,9 @@ export const RegisterDoctor = (props) => {
         >
           howicanhelp
         </label>
-        <textarea
+        <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.howicanhelp}
           name="howicanhelp"
           onChange={handleChange}
@@ -170,10 +161,9 @@ export const RegisterDoctor = (props) => {
         >
           services
         </label>
-        <textarea
+        <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.services}
           name="services"
           onChange={handleChange}
@@ -189,7 +179,6 @@ export const RegisterDoctor = (props) => {
         <input
           type="text"
           className="form-control"
-          id="exampleInputPassword1"
           value={registerDoctor.certifications}
           name="certifications"
           onChange={handleChange}

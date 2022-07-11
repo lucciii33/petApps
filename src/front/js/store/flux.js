@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       userDoctor: {},
+      allDoctors: {},
+      doctorsbyId: {},
     },
     actions: {
       /////////////here is the token
@@ -83,11 +85,61 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await resp.json();
         console.log("data", data)
         // save your token in the sessionStorage
-        setStore({ userDoctor: data });
+        setStore({ userDoctor: data.user });
         sessionStorage.setItem("jwt-token", data.access_token);
         // console.log(loggId)
         return data.access_token;
 
+      },
+
+      updateDoctorsProfile: async (doctorInfo, id) => {
+        const store = getStore()
+        try {
+          const respon = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/profile/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              doctorInfo
+            }),
+          })
+          if (respon.ok) {
+            const data = await respon.json()
+            setStore({ userDoctor: data });
+          }
+
+        }
+        catch (error) {
+          throw Error("not working")
+        }
+      },
+
+      getDataDoctors: async () => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors`);
+          if (response.ok) {
+            const data = await response.json();
+            setStore({ allDoctors: data.user })
+            console.log(data)
+          }
+        } catch (error) {
+          throw Error(error);
+        }
+      },
+
+      getDataDoctorsbyId: async (id) => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/${id}`);
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            // setStore({ allDoctors: data.user })
+            return true
+          }
+        } catch (error) {
+          throw Error(error);
+        }
       },
 
 

@@ -1,18 +1,28 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { Context } from "../store/appContext";
 
 export const Profile = () => {
+	const params = useParams();
 	const { store, actions } = useContext(Context);
-	const [inputValue, setInputValue] = useState({ aboutme: "", howicanhelp: "", services: "", certifications: "" });
+	// const [currentDoctor, setCurrentDoctor] = useState("");
+	const [inputValue, setInputValue] = useState({ full_name: "", email: "", phone: "", specialty: "", sub_specialty: "", years_of_experience: "" });
 	const handleChange = e => {
 		setInputValue({ ...inputValue, [e.target.name]: e.target.value });
 	};
+	const doctor = store.userDoctor
+
+	// useEffect(async () => {
+	// 	// await actions.getDataDoctors();
+	// 	setCurrentDoctor(await actions.getDataDoctorsbyId((params.id)));
+	// 	// await actions.updateDoctorsProfile();
+	// }, [])
 	return (
 		<div className="container">
 			<div>
-				<h2>{store.userDoctor.full_name}</h2>
+				<h2>{doctoroctor.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
@@ -21,7 +31,7 @@ export const Profile = () => {
 						<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile "></img>
 					</div>
 					<div className="sectionprofile">
-						<h5 className="mb-2">{store.userDoctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+						<h5 className="mb-2">{doctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
 
 						<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div className="modal-dialog">
@@ -34,40 +44,62 @@ export const Profile = () => {
 										<div>Please add the following credentials:</div>
 										<div className="d-grid justify-content-center m-1">
 											<label className="labelsingup text-muted">Your Name
-												<input></input>
+												<input name="full_name"
+													value={inputValue.full_name}
+													onChange={handleChange}></input>
 											</label>
-											<label className="labelsingup text-muted">Your Practice’s Name
-												<input></input>
+											<label className="labelsingup text-muted">Email
+												<input name="email"
+													value={inputValue.email}
+													onChange={handleChange}></input>
+											</label>
+											<label className="labelsingup text-muted">Phone
+												<input name="phone"
+													value={inputValue.phone}
+													onChange={handleChange}></input>
 											</label>
 											<label className="labelsingup text-muted">Your Specialty
-												<input></input>
+												<input name="specialty"
+													value={inputValue.specialty}
+													onChange={handleChange}></input>
 											</label>
 											<label className="labelsingup text-muted">Sub Specialty
-												<input></input>
+												<input name="sub_specialty"
+													value={inputValue.sub_specialty}
+													onChange={handleChange}></input>
 											</label>
 											<label className="labelsingup text-muted">Years of Experience
-												<input></input>
+												<input name="years_of_experience"
+													value={inputValue.years_of_experience}
+													onChange={handleChange}></input>
 											</label>
 
 										</div>
 									</div>
 									<div className="modal-footer">
 										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" className="btn btn-primary">Save changes</button>
+										<button type="button" className="btn btn-primary" onClick={() => {
+											actions.updateDoctorsProfile(inputValue.email, inputValue.full_name, inputValue.phone, inputValue.specialty, inputValue.sub_specialty, inputValue.years_of_experience, doctor.id)
+
+										}}>Save changes</button>
 									</div>
 								</div>
 							</div>
 						</div>
 
 
+						<h6 className="mb-2">email</h6>
+						<p>{doctor.email}</p>
 						<h6 className="mb-2">practice name</h6>
-						<p>{store.userDoctor.full_name}</p>
+						<p>{doctor.full_name}</p>
+						<h6 className="mb-2">phone</h6>
+						<p>{doctor.phone}</p>
 						<h6 className="mb-2">Specialty</h6>
-						<p>{store.userDoctor.specialty}</p>
+						<p>{doctor.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>
-						<p>{store.userDoctor.Sub_specialty}</p>
+						<p>{doctor.sub_specialty}</p>
 						<h6 className="mb-2">Years of Experience</h6>
-						<p>{store.userDoctor.years_of_experience}</p>
+						<p>{doctor.years_of_experience}</p>
 						<div className="d-flex mb-2">
 							<h6>need a video call?</h6>
 							<i class="fas fa-video ms-3"></i>
@@ -85,7 +117,7 @@ export const Profile = () => {
 						// onChange={handleChange}
 						// {...store.userDoctor.aboutme}
 						></textarea>
-						<p>{store.userDoctor.aboutme}</p>
+						<p>{doctor.aboutme}</p>
 					</div>
 					<br />
 					<div className="editprofile">
@@ -95,7 +127,7 @@ export const Profile = () => {
 							// value={howicanhelp}
 							onChange={handleChange}
 						></textarea>
-						<p>{store.userDoctor.howicanhelp}</p>
+						<p>{doctor.howicanhelp}</p>
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
@@ -104,7 +136,7 @@ export const Profile = () => {
 							// value={services}
 							onChange={handleChange}
 						></textarea>
-						<p>{store.userDoctor.services}</p>
+						<p>{doctor.services}</p>
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
@@ -113,7 +145,7 @@ export const Profile = () => {
 							// value={certifications}
 							onChange={handleChange}
 						></textarea>
-						<p>{store.userDoctor.certifications}</p>
+						<p>{doctor.certifications}</p>
 					</div>
 					{/* <Link className="" to=""> */}
 					<button
@@ -132,4 +164,8 @@ export const Profile = () => {
 			</div>
 		</div>
 	);
+};
+
+Profile.propTypes = {
+	match: PropTypes.object
 };
