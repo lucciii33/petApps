@@ -14,6 +14,13 @@ export const RegisterDoctor = (props) => {
 
   };
 
+  const specialtyDoctor = [
+    "Groomings",
+    "Dog trainers",
+    "veterinarians",
+    "Walker",
+  ]
+
   return (
     <div className="jumbotron">
       <h1>Register doctor</h1>
@@ -86,13 +93,25 @@ export const RegisterDoctor = (props) => {
         >
           specialty
         </label>
-        <input
-          type="text"
-          className="form-control"
-          value={registerDoctor.specialty}
-          name="specialty"
-          onChange={handleChange}
-        />
+        <div class="input-group">
+          <select
+            class="form-select"
+            id="inputGroupSelect04"
+            aria-label="Example select with button addon"
+            value={registerDoctor.specialty}
+            name="specialty"
+            onChange={handleChange}
+          >
+            <option value="0" className="text-muted">
+              -select one-
+            </option>
+            {specialtyDoctor.map((type, index) => {
+              return <option key={index} value={type} className="text-muted">
+                {type}
+              </option>
+            })}
+          </select>
+        </div>
       </div>
       <div className="mb-3">
         <label

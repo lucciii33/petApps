@@ -211,26 +211,32 @@ def get_single_user(id):
 @api.route('/userdoctors/profile/<int:id>', methods=['PUT'])
 def edit_profile(id):
 
-    body = request.get_json()
+    
+
+    email = request.json.get("email")
+    full_name = request.json.get("full_name")
+    phone = request.json.get("phone")
+    specialty = request.json.get("specialty")
+    sub_specialty = request.json.get("sub_specialty")
+    years_of_experience = request.json.get("years_of_experience")
+    id = request.json.get("id")
 
     profile_id = UserDoctors.query.filter_by(id=id).one_or_none()
     if profile_id is None:
         raise APIException('Profile no found', status_code=404)
 
-    if "email" in body:
-        profile_id.email = body["email"]
-    if "full_name" in body:
-        profile_id.full_name = body["full_name"]
-    if "is_active" in body:
-        profile_id.is_active = body["is_active"]
-    if "phone" in body:
-        profile_id.phone = body["phone"]
-    if "specialty" in body:
-        profile_id.specialty = body["specialty"]
-    if "sub_specialty" in body:
-        profile_id.sub_specialty = body["sub_specialty"]
-    if "years_of_experience" in body:
-        profile_id.years_of_experience = body["years_of_experience"]
+    if email:
+        profile_id.email = email
+    if full_name:
+        profile_id.full_name = full_name
+    if phone:
+        profile_id.phone = phone
+    if specialty:
+        profile_id.specialty = specialty
+    if sub_specialty:
+        profile_id.sub_specialty = sub_specialty
+    if years_of_experience:
+        profile_id.years_of_experience = years_of_experience
 
     
     # UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))

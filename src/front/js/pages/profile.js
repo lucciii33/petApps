@@ -140,11 +140,11 @@ export const Profile = () => {
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
-						<textarea className="special"
+						{/* <textarea className="special"
 							name="certifications"
 							// value={certifications}
 							onChange={handleChange}
-						></textarea>
+						></textarea> */}
 						<p>{doctor.certifications}</p>
 					</div>
 					{/* <Link className="" to=""> */}

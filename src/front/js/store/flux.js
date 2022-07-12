@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       },
 
-      updateDoctorsProfile: async (doctorInfo, id) => {
+      updateDoctorsProfile: async (email, full_name, phone, specialty, sub_specialty, years_of_experience, id) => {
         const store = getStore()
         try {
           const respon = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/profile/${id}`, {
@@ -101,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              doctorInfo
+              email, full_name, phone, specialty, sub_specialty, years_of_experience, id
             }),
           })
           if (respon.ok) {
