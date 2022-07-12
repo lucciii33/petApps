@@ -111,31 +111,31 @@ export const Profile = () => {
 				<div className="col-md-4">
 					<div className="editprofile">
 						<h3>About Me</h3>
-						<textarea
+						{/* <textarea
 						// name="aboutme"
 						// // value={aboutme}
 						// onChange={handleChange}
 						// {...store.userDoctor.aboutme}
-						></textarea>
-						{/* <p>{doctor.aboutme}</p> */}
+						></textarea> */}
+						<p>{doctor.aboutme}</p>
 					</div>
 					<br />
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
-						<textarea
+						{/* <textarea
 							name="howicanhelp"
 							// value={howicanhelp}
 							onChange={handleChange}
-						></textarea>
-						{/* <p>{doctor.howicanhelp}</p> */}
+						></textarea> */}
+						<p>{doctor.howicanhelp}</p>
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
-						<textarea
+						{/* <textarea
 							name="services"
 							// value={services}
 							onChange={handleChange}
-						></textarea>
+						></textarea> */}
 						{/* <p>{doctor.services}</p> */}
 					</div>
 					<div className="editprofilecertification">
@@ -145,7 +145,7 @@ export const Profile = () => {
 							// value={certifications}
 							onChange={handleChange}
 						></textarea>
-						{/* <p>{doctor.certifications}</p> */}
+						<p>{doctor.certifications}</p>
 					</div>
 					{/* <Link className="" to=""> */}
 					<button

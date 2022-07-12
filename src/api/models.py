@@ -33,7 +33,11 @@ class UserDoctors(db.Model):
             "rating": self.rating,
             "specialty": self.specialty,
             "sub_specialty": self.sub_specialty,
-            "years_of_experience": self.years_of_experience
+            "years_of_experience": self.years_of_experience,
+            "aboutme": self.aboutme,
+            "howicanhelp": self.howicanhelp,
+            "services": self.services,
+            "certifications": self.certifications,
 
             # do not serialize the password, its a security breach
         }
