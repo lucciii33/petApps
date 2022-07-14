@@ -78,7 +78,7 @@ export const Profile = () => {
 									</div>
 									<div className="modal-footer">
 										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" className="btn btn-primary" onClick={() => {
+										<button type="button" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" onClick={() => {
 											actions.updateDoctorsProfile(inputValue.email, inputValue.full_name, inputValue.phone, inputValue.specialty, inputValue.sub_specialty, inputValue.years_of_experience, doctor.id)
 
 										}}>Save changes</button>

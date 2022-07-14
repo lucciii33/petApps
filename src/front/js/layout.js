@@ -15,6 +15,7 @@ import { Register } from "./pages/register";
 import { SinginInformation } from "./pages/singinInformation";
 import { RegisterDoctor } from "./pages/registerDoctor";
 import { LoginDoctor } from "./pages/logindoctor";
+import { GetDoctors } from "./pages/getdoctors";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -50,6 +51,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/logindoctor">
 							<LoginDoctor />
+						</Route>
+						<Route exact path="/getdoctors">
+							<GetDoctors />
 						</Route>
 						<Route exact path="/register">
 							<Register />

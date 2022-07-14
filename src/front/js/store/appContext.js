@@ -32,6 +32,7 @@ const injectContext = PassedComponent => {
 
 			// state.actions.getProfileData()
 			window.store = state.store;
+			state.actions.getDataDoctors();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
