@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       userDoctor: {},
-      allDoctors: {},
+      allDoctors: null,
       doctorsbyId: {},
     },
     actions: {
@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors`);
           if (response.ok) {
             const data = await response.json();
-            setStore({ allDoctors: data.user })
+            setStore({ allDoctors: data })
             console.log(data)
           }
         } catch (error) {
