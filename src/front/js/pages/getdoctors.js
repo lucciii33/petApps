@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import image1 from "../../img/mainimage.jpg";
 import "../../styles/home.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CardProviders } from "../component/cardproviders";
 
@@ -11,6 +11,7 @@ export const GetDoctors = ({ data }) => {
     const { store, actions } = useContext(Context);
     const [practitioners, setPractitioners] = useState(null)
     const [filterValue, setFilterValue] = useState("")
+    const params = useParams();
     console.log(store.allDoctors)
 
     useEffect(() => {
@@ -50,16 +51,17 @@ export const GetDoctors = ({ data }) => {
                 </div>
             </div>
             <div className="d-flex flex-wrap m-2">
-
-                {practitioners && practitioners.map((info, index) => {
-                    return (<CardProviders data={{
-                        full_name: info.full_name,
-                        howicanhelp: info.howicanhelp,
-                        services: info.services,
-                    }}
-                        key={index}
-                    />)
-                })}
+                <div>
+                    {practitioners && practitioners.map((info, index) => {
+                        return (<Link to={`/profile/${info.id}`}><CardProviders data={{
+                            full_name: info.full_name,
+                            howicanhelp: info.howicanhelp,
+                            services: info.services,
+                        }}
+                            key={index}
+                        /></Link>)
+                    })}
+                </div>
 
             </div>
         </div>
