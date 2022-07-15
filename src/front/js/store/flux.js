@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       userDoctor: {},
-      allDoctors: null,
+      allDoctors: [],
       doctorsbyId: {},
     },
     actions: {

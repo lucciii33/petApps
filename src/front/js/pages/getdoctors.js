@@ -53,7 +53,7 @@ export const GetDoctors = ({ data }) => {
             <div className="d-flex flex-wrap m-2">
                 <div>
                     {practitioners && practitioners.map((info, index) => {
-                        return (<Link to={`/profile/${info.id}`}><CardProviders data={{
+                        return (<Link to={`/profileuserview/${info.id}`}><CardProviders data={{
                             full_name: info.full_name,
                             howicanhelp: info.howicanhelp,
                             services: info.services,

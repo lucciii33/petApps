@@ -16,6 +16,7 @@ import { SinginInformation } from "./pages/singinInformation";
 import { RegisterDoctor } from "./pages/registerDoctor";
 import { LoginDoctor } from "./pages/logindoctor";
 import { GetDoctors } from "./pages/getdoctors";
+import { ProfileView } from "./pages/profileuserview";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -37,8 +38,11 @@ const Layout = () => {
 							<CompOne />
 							<CompTwo />
 						</Route>
-						<Route exact path="/profile/:id">
+						<Route exact path="/profile">
 							<Profile />
+						</Route>
+						<Route exact path="/profileuserview/:id">
+							<ProfileView />
 						</Route>
 						<Route exact path="/aboutus">
 							<AboutUs />

@@ -6,23 +6,31 @@ import { Context } from "../store/appContext";
 
 export const ProfileView = () => {
 	const params = useParams();
+	const [idDoctor, setIdDoctor] = useState(params.id)
 	const { store, actions } = useContext(Context);
-	// const [currentDoctor, setCurrentDoctor] = useState("");
-	const [inputValue, setInputValue] = useState({ full_name: "", email: "", phone: "", specialty: "", sub_specialty: "", years_of_experience: "" });
-	const handleChange = e => {
-		setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-	};
-	const doctor = store.userDoctor
+	const [doctors, setDoctors] = useState('');
 
-	// useEffect(async () => {
-	// 	// await actions.getDataDoctors();
-	// 	setCurrentDoctor(await actions.getDataDoctorsbyId((params.id)));
-	// 	// await actions.updateDoctorsProfile();
-	// }, [])
+
+
+	useEffect(() => {
+		setDoctors(store.allDoctors)
+	}, [store.allDoctors])
+
+	useEffect(() => {
+		if (params.id !== "") {
+			let newArray = doctors.find((item, index) => item.id === params.id)
+			setDoctors(newArray)
+		} else {
+			setDoctors(store.allDoctors)
+		}
+
+	}, [doctors])
+	// const doctor = store.allDoctors
+	console.log("doctor", doctors)
 	return (
 		<div className="container">
 			<div>
-				<h2>{doctor.full_name}</h2>
+				<h2>{doctors.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
@@ -31,75 +39,21 @@ export const ProfileView = () => {
 						<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile "></img>
 					</div>
 					<div className="sectionprofile">
-						<h5 className="mb-2">{doctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-
-						<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div className="modal-dialog">
-								<div className="modal-content">
-									<div className="modal-header">
-										<h5 className="modal-title" id="exampleModalLabel">Edit Credentials</h5>
-										<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div className="modal-body ">
-										<div>Please add the following credentials:</div>
-										<div className="d-grid justify-content-center m-1">
-											<label className="labelsingup text-muted">Your Name
-												<input name="full_name"
-													value={inputValue.full_name}
-													onChange={handleChange}></input>
-											</label>
-											<label className="labelsingup text-muted">Email
-												<input name="email"
-													value={inputValue.email}
-													onChange={handleChange}></input>
-											</label>
-											<label className="labelsingup text-muted">Phone
-												<input name="phone"
-													value={inputValue.phone}
-													onChange={handleChange}></input>
-											</label>
-											<label className="labelsingup text-muted">Your Specialty
-												<input name="specialty"
-													value={inputValue.specialty}
-													onChange={handleChange}></input>
-											</label>
-											<label className="labelsingup text-muted">Sub Specialty
-												<input name="sub_specialty"
-													value={inputValue.sub_specialty}
-													onChange={handleChange}></input>
-											</label>
-											<label className="labelsingup text-muted">Years of Experience
-												<input name="years_of_experience"
-													value={inputValue.years_of_experience}
-													onChange={handleChange}></input>
-											</label>
-
-										</div>
-									</div>
-									<div className="modal-footer">
-										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" onClick={() => {
-											actions.updateDoctorsProfile(inputValue.email, inputValue.full_name, inputValue.phone, inputValue.specialty, inputValue.sub_specialty, inputValue.years_of_experience, doctor.id)
-
-										}}>Save changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
+						<h5 className="mb-2">{doctors.full_name} </h5>
 
 
 						<h6 className="mb-2">email</h6>
-						<p>{doctor.email}</p>
+						<p>{doctors.email}</p>
 						<h6 className="mb-2">practice name</h6>
-						<p>{doctor.full_name}</p>
+						<p>{doctors.full_name}</p>
 						<h6 className="mb-2">phone</h6>
-						<p>{doctor.phone}</p>
+						<p>{doctors.phone}</p>
 						<h6 className="mb-2">Specialty</h6>
-						<p>{doctor.specialty}</p>
+						<p>{doctors.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>
-						<p>{doctor.sub_specialty}</p>
+						<p>{doctors.sub_specialty}</p>
 						<h6 className="mb-2">Years of Experience</h6>
-						<p>{doctor.years_of_experience}</p>
+						<p>{doctors.years_of_experience}</p>
 						<div className="d-flex mb-2">
 							<h6>need a video call?</h6>
 							<i class="fas fa-video ms-3"></i>
@@ -111,13 +65,13 @@ export const ProfileView = () => {
 				<div className="col-md-4">
 					<div className="editprofile">
 						<h3>About Me</h3>
-						{/* <textarea
+						<textarea
 						// name="aboutme"
 						// // value={aboutme}
 						// onChange={handleChange}
 						// {...store.userDoctor.aboutme}
-						></textarea> */}
-						<p>{doctor.aboutme}</p>
+						></textarea>
+						<p>{doctors.aboutme}</p>
 					</div>
 					<br />
 					<div className="editprofile">
@@ -127,7 +81,7 @@ export const ProfileView = () => {
 							// value={howicanhelp}
 							onChange={handleChange}
 						></textarea> */}
-						<p>{doctor.howicanhelp}</p>
+						<p>{doctors.howicanhelp}</p>
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
@@ -136,7 +90,7 @@ export const ProfileView = () => {
 							// value={services}
 							onChange={handleChange}
 						></textarea> */}
-						{/* <p>{doctor.services}</p> */}
+						<p>{doctors.services}</p>
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
@@ -145,16 +99,16 @@ export const ProfileView = () => {
 							// value={certifications}
 							onChange={handleChange}
 						></textarea> */}
-						<p>{doctor.certifications}</p>
+						<p>{doctors.certifications}</p>
 					</div>
-					{/* <Link className="" to=""> */}
-					<button
-						type="button"
-						className="btn btn-primary form-control"
-						onClick={() => actions.addprofile(aboutme, howicanhelp, services, certifications,)}>
-						save
-					</button>
-					{/* </Link> */}
+					<Link className="" to="">
+						<button
+							type="button"
+							className="btn btn-primary form-control"
+							onClick={() => actions.addprofile(aboutme, howicanhelp, services, certifications,)}>
+							save
+						</button>
+					</Link>
 				</div>
 				<div className="col-md-4">
 					<div className="availability"></div>
@@ -166,6 +120,6 @@ export const ProfileView = () => {
 	);
 };
 
-Profile.propTypes = {
+ProfileView.propTypes = {
 	match: PropTypes.object
 };
