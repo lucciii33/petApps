@@ -70,7 +70,7 @@ export const ProfileView = () => {
 								<div className="d-flex justify-content-center">
 									<div>
 										<h6 className="mb-2 me-2">email</h6>
-										<p className="me-2">jsjdjffffffffdj</p>
+										<p className="me-2">jsjdjfffffffdj</p>
 									</div>
 									<div>
 										<h6 className="mb-2 me-2">Full name</h6>
