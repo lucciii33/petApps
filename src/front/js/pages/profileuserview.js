@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { Context } from "../store/appContext";
 
-export const Profile = () => {
+export const ProfileView = () => {
 	const params = useParams();
 	const { store, actions } = useContext(Context);
 	// const [currentDoctor, setCurrentDoctor] = useState("");
