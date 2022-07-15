@@ -12,19 +12,19 @@ export const ProfileView = () => {
 
 
 
-	useEffect(() => {
-		setDoctors(store.allDoctors)
-	}, [store.allDoctors])
+	// useEffect(() => {
+	// 	setDoctors(store.allDoctors)
+	// }, [store.allDoctors])
 
-	useEffect(() => {
-		if (params.id !== "") {
-			let newArray = doctors.find((item, index) => item.id === params.id)
-			setDoctors(newArray)
-		} else {
-			setDoctors(store.allDoctors)
-		}
+	// useEffect(() => {
+	// 	if (params.id !== "") {
+	// 		let newArray = doctors.find((item, index) => item.id === params.id)
+	// 		setDoctors(newArray)
+	// 	} else {
+	// 		setDoctors(store.allDoctors)
+	// 	}
 
-	}, [doctors])
+	// }, [doctors])
 	// const doctor = store.allDoctors
 	console.log("doctor", doctors)
 	return (
@@ -33,11 +33,8 @@ export const ProfileView = () => {
 				<h2>{doctors.full_name}</h2>
 			</div>
 			<div className="row">
-				<div className="col-md-4 boximage ">
+				{/* <div className="col-md-6 boximage2 ">
 
-					<div className="">
-						<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile "></img>
-					</div>
 					<div className="sectionprofile">
 						<h5 className="mb-2">{doctors.full_name} </h5>
 
@@ -61,59 +58,57 @@ export const ProfileView = () => {
 
 					</div>
 
-				</div>
-				<div className="col-md-4">
-					<div className="editprofile">
-						<h3>About Me</h3>
-						<textarea
-						// name="aboutme"
-						// // value={aboutme}
-						// onChange={handleChange}
-						// {...store.userDoctor.aboutme}
-						></textarea>
-						<p>{doctors.aboutme}</p>
+				</div> */}
+				<div className="col-md-6 newbg">
+					<div>
+						<div className="d-flex">
+
+							<div className="pt-3 ms-2 me-5">
+								<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile1 "></img>
+							</div>
+							<div className="editprofile1 pt-3">
+								<div className="d-flex justify-content-center">
+									<div>
+										<h6 className="mb-2 me-2">email</h6>
+										<p className="me-2">jsjdjffffffffdj</p>
+									</div>
+									<div>
+										<h6 className="mb-2 me-2">Full name</h6>
+										<p className="ms-3">jsjdjfffffffdj  ffff</p>
+									</div>
+									<div>
+										<h6 className="mb-2 me-2">phone</h6>
+										<p className="me-2">jfffsjdjdj</p>
+									</div>
+									<div>
+
+										<h6 className="mb-2 me-2">Specialty</h6>
+										<p className="ms-3">{doctors.specialty}jdjdffffffjd</p>
+									</div>
+									<div>
+
+										<h6 className="mb-2 me-2">Sub-Specialties</h6>
+										<p className="ms-3">{doctors.sub_specialty}dffffffffff</p>
+									</div>
+									<div>
+
+										<h6 className="mb-2 me-2">Years of Experience</h6>
+										<p className="ms-3">{doctors.years_of_experience}dddffffffffd</p>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+						<div className="editprofile1 me-5 "></div>
 					</div>
+
+
 					<br />
-					<div className="editprofile">
-						<h3>How I can help you?</h3>
-						{/* <textarea
-							name="howicanhelp"
-							// value={howicanhelp}
-							onChange={handleChange}
-						></textarea> */}
-						<p>{doctors.howicanhelp}</p>
+					<div>
+
 					</div>
-					<div className="editprofile">
-						<h3>Services offered</h3>
-						{/* <textarea
-							name="services"
-							// value={services}
-							onChange={handleChange}
-						></textarea> */}
-						<p>{doctors.services}</p>
-					</div>
-					<div className="editprofilecertification">
-						<h3>Certifications</h3>
-						{/* <textarea className="special"
-							name="certifications"
-							// value={certifications}
-							onChange={handleChange}
-						></textarea> */}
-						<p>{doctors.certifications}</p>
-					</div>
-					<Link className="" to="">
-						<button
-							type="button"
-							className="btn btn-primary form-control"
-							onClick={() => actions.addprofile(aboutme, howicanhelp, services, certifications,)}>
-							save
-						</button>
-					</Link>
-				</div>
-				<div className="col-md-4">
-					<div className="availability"></div>
-					<div className="cancelation"></div>
-					<div className="payment"></div>
 				</div>
 			</div>
 		</div>

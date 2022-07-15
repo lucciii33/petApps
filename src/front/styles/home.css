@@ -314,3 +314,32 @@ textarea {
   height: 100%;
   border-radius: 15px;
 }
+
+.newbg {
+  background-color: #198754;
+  width: 1000px;
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.boximage2 {
+  background-color: #c9e9b8;
+  width: 230px;
+  height: 330px;
+  margin: 10px;
+  border-radius: 8px;
+}
+.imageprofile1 {
+  width: 150px;
+  height: 150px;
+  border-radius: 70%;
+  object-fit: cover;
+}
+.editprofile1 {
+  width: 800px;
+  height: 80px;
+  border-radius: 8px;
+  background-color: #c9e9b8;
+  margin-top: 15px;
+}
