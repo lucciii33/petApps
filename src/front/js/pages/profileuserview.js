@@ -6,11 +6,17 @@ import { Context } from "../store/appContext";
 
 export const ProfileView = () => {
 	const params = useParams();
-	const [idDoctor, setIdDoctor] = useState(params.id)
+	// const [idDoctor, setIdDoctor] = useState(params.id)
 	const { store, actions } = useContext(Context);
-	const [doctors, setDoctors] = useState('');
+	const [doctor, setDoctor] = useState(store.userDoctor);
 
 
+	useEffect(() => {
+		// let individual = doctor.find((item) => item.id === params.id)
+		// setDoctor(individual)
+		const result = doctor == {} ? arr.find((item) => item.id === params.id) : doctor;
+		setDoctor(result)
+	}, [])
 
 	// useEffect(() => {
 	// 	setDoctors(store.allDoctors)
@@ -26,11 +32,11 @@ export const ProfileView = () => {
 
 	// }, [doctors])
 	// const doctor = store.allDoctors
-	console.log("doctor", doctors)
+	console.log("doctor", doctor)
 	return (
 		<div className="container">
 			<div>
-				<h2>{doctors.full_name}</h2>
+				<h2>{doctor.full_name}</h2>
 			</div>
 			<div className="row">
 				{/* <div className="col-md-6 boximage2 ">
@@ -83,17 +89,17 @@ export const ProfileView = () => {
 									<div>
 
 										<h6 className="mb-2 me-2">Specialty</h6>
-										<p className="ms-3">{doctors.specialty}jdjdffffffjd</p>
+										<p className="ms-3">{doctor.specialty}jdjdffffffjd</p>
 									</div>
 									<div>
 
 										<h6 className="mb-2 me-2">Sub-Specialties</h6>
-										<p className="ms-3">{doctors.sub_specialty}dffffffffff</p>
+										<p className="ms-3">{doctor.sub_specialty}dffffffffff</p>
 									</div>
 									<div>
 
 										<h6 className="mb-2 me-2">Years of Experience</h6>
-										<p className="ms-3">{doctors.years_of_experience}dddffffffffd</p>
+										<p className="ms-3">{doctor.years_of_experience}dddffffffffd</p>
 									</div>
 
 
