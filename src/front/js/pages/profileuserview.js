@@ -5,22 +5,22 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const ProfileView = () => {
-	const params = useParams();
+
 	// const [idDoctor, setIdDoctor] = useState(params.id)
 	const { store, actions } = useContext(Context);
-	const [doctor, setDoctor] = useState(store.userDoctor);
-
-
-	useEffect(() => {
-		// let individual = doctor.find((item) => item.id === params.id)
-		// setDoctor(individual)
-		const result = doctor == {} ? arr.find((item) => item.id === params.id) : doctor;
-		setDoctor(result)
-	}, [])
+	const [doctor, setDoctor] = useState(null);
+	const params = useParams();
 
 	// useEffect(() => {
-	// 	setDoctors(store.allDoctors)
-	// }, [store.allDoctors])
+	// 	// let individual = doctor.find((item) => item.id === params.id)
+	// 	// setDoctor(individual)
+	// 	const result = store.userDoctor == {} ? arr.find((item) => item.id === params.id) : doctor;
+	// 	setDoctor(result)
+	// }, [])
+
+	useEffect(async () => {
+		setDoctor(await actions.getDataDoctorsbyId(params.id))
+	}, [])
 
 	// useEffect(() => {
 	// 	if (params.id !== "") {

@@ -134,8 +134,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (response.ok) {
             const data = await response.json();
             console.log(data)
-            // setStore({ allDoctors: data.user })
-            return true
+            // setStore({ userDoctor: data })
+            return data;
           }
         } catch (error) {
           throw Error(error);
