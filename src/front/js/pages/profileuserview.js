@@ -11,16 +11,23 @@ export const ProfileView = () => {
 	const [doctor, setDoctor] = useState(null);
 	const params = useParams();
 
-	// useEffect(() => {
-	// 	// let individual = doctor.find((item) => item.id === params.id)
-	// 	// setDoctor(individual)
-	// 	const result = store.userDoctor == {} ? arr.find((item) => item.id === params.id) : doctor;
-	// 	setDoctor(result)
-	// }, [])
 
-	useEffect(async () => {
-		setDoctor(await actions.getDataDoctorsbyId(params.id))
-	}, [])
+	useEffect(() => {
+		let individual = store.allDoctors.find((item) => {
+			console.log(item)
+			if (item.id == params.id) {
+				return item;
+			}
+		}
+		)
+		setDoctor(individual)
+		// const result = store.userDoctor == {} ? arr.find((item) => item.id === params.id) : doctor;
+		// setDoctor(result)
+	}, [store.allDoctors])
+
+	// useEffect(async () => {
+	// 	setDoctor(await actions.getDataDoctorsbyId(params.id))
+	// }, [])
 
 	// useEffect(() => {
 	// 	if (params.id !== "") {
@@ -36,7 +43,7 @@ export const ProfileView = () => {
 	return (
 		<div className="container">
 			<div>
-				<h2>{doctor.full_name}</h2>
+				<h2>{doctor && doctor.full_name}</h2>
 			</div>
 			<div className="row">
 				{/* <div className="col-md-6 boximage2 ">
@@ -86,7 +93,7 @@ export const ProfileView = () => {
 										<h6 className="mb-2 me-2">phone</h6>
 										<p className="me-2">jfffsjdjdj</p>
 									</div>
-									<div>
+									{/* <div>
 
 										<h6 className="mb-2 me-2">Specialty</h6>
 										<p className="ms-3">{doctor.specialty}jdjdffffffjd</p>
@@ -100,7 +107,7 @@ export const ProfileView = () => {
 
 										<h6 className="mb-2 me-2">Years of Experience</h6>
 										<p className="ms-3">{doctor.years_of_experience}dddffffffffd</p>
-									</div>
+									</div> */}
 
 
 								</div>
