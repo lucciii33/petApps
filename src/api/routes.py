@@ -137,6 +137,7 @@ def register_user_doctors():
     howicanhelp = request.json.get('howicanhelp')
     services = request.json.get('services')
     certifications = request.json.get('certifications')
+    image_profile = request.json.get('image_profile')
 
     h.update(password.encode('utf-8'))
     hash = h.hexdigest()

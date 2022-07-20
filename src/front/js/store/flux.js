@@ -51,11 +51,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // here start doctors functions
 
-      registerUserDoctor: async (email, full_name, phone, password, specialty, sub_specialty, years_of_experience, aboutme, howicanhelp, services, certifications) => {
+      registerUserDoctor: async (email, full_name, phone, password, specialty, sub_specialty, years_of_experience, aboutme, howicanhelp, services, certifications, image_profile) => {
         const resp = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, full_name, phone, password, specialty, sub_specialty, years_of_experience, aboutme, howicanhelp, services, certifications })
+          body: JSON.stringify({ email, full_name, phone, password, specialty, sub_specialty, years_of_experience, aboutme, howicanhelp, services, certifications, image_profile })
         });
 
         if (!resp.ok) throw "Problem with the response";

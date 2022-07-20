@@ -17,6 +17,7 @@ class UserDoctors(db.Model):
     howicanhelp = db.Column(db.String(520), unique=False, nullable=True)
     services = db.Column(db.String(520), unique=False, nullable=True)
     certifications = db.Column(db.String(520), unique=False, nullable=True)
+    image_profile = db.Column(db.String(520), unique=False, nullable=True)
 
     # profiles = db.relationship('Profile', backref='profiles', lazy=True)
 
@@ -38,6 +39,7 @@ class UserDoctors(db.Model):
             "howicanhelp": self.howicanhelp,
             "services": self.services,
             "certifications": self.certifications,
+            "image_profile": self.image_profile,
 
             # do not serialize the password, its a security breach
         }

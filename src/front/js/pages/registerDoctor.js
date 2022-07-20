@@ -8,7 +8,7 @@ export const RegisterDoctor = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
-  const [registerDoctor, setRegisterDoctor] = useState({ email: "", full_name: "", phone: "", password: "", specialty: "", sub_specialty: "", years_of_experience: "", aboutme: "", howicanhelp: "", services: "", certifications: "" });
+  const [registerDoctor, setRegisterDoctor] = useState({ email: "", full_name: "", phone: "", password: "", specialty: "", sub_specialty: "", years_of_experience: "", aboutme: "", howicanhelp: "", services: "", certifications: "", image_profile: "" });
   const handleChange = e => {
     setRegisterDoctor({ ...registerDoctor, [e.target.name]: e.target.value });
 
@@ -203,10 +203,25 @@ export const RegisterDoctor = (props) => {
           onChange={handleChange}
         />
       </div>
+      <div className="mb-3">
+        <label
+          for="exampleInputPassword1"
+          className="form-label"
+        >
+          write yes if you will use and image
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          value={registerDoctor.image_profile}
+          name="image_profile"
+          onChange={handleChange}
+        />
+      </div>
       <Link to="/logindoctor"><button
         type="submit"
         className="btn btn-primary"
-        onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience, registerDoctor.aboutme, registerDoctor.howicanhelp, registerDoctor.services, registerDoctor.certifications)}
+        onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience, registerDoctor.aboutme, registerDoctor.howicanhelp, registerDoctor.services, registerDoctor.certifications, registerDoctor.image_profile)}
       >
         Submit
       </button></Link>
