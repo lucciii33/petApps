@@ -17,6 +17,7 @@ import { RegisterDoctor } from "./pages/registerDoctor";
 import { LoginDoctor } from "./pages/logindoctor";
 import { GetDoctors } from "./pages/getdoctors";
 import { ProfileView } from "./pages/profileuserview";
+import { UploadImage } from "./pages/uploadImage";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -70,6 +71,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/userview">
 							<UserView />
+						</Route>
+						<Route exact path="/uploadImage">
+							<UploadImage />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

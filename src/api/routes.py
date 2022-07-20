@@ -9,6 +9,8 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from hashlib import sha256
+import cloudinary
+import cloudinary.uploader
 
 api = Blueprint('api', __name__)
 
@@ -279,4 +281,13 @@ def edit_profiletwo(id):
     # updatedUsersDoctor = UserDoctors.query.get(id)
 
     return jsonify( profiletwo_id.serialize())
+
+@api.route('/upload', methods=['POST'])
+def send_image():
+
+#    print(request.files)
+   result = cloudinary.uploader.upload(request.files["profile_image"])
+
+   return jsonify("successfully"), 200
+    
 
