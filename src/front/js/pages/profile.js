@@ -8,9 +8,17 @@ export const Profile = () => {
 	const params = useParams();
 	const { store, actions } = useContext(Context);
 	// const [currentDoctor, setCurrentDoctor] = useState("");
+
+
 	const [inputValue, setInputValue] = useState({ full_name: "", email: "", phone: "", specialty: "", sub_specialty: "", years_of_experience: "" });
 	const handleChange = e => {
 		setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+	};
+
+
+	const [inputValueTwo, setInputValueTwo] = useState({ full_name: "", email: "", phone: "", specialty: "", sub_specialty: "", years_of_experience: "" });
+	const handleChangeTwo = e => {
+		setInputValueTwo({ ...inputValueTwo, [e.target.name]: e.target.value });
 	};
 	const doctor = store.userDoctor
 
@@ -109,49 +117,56 @@ export const Profile = () => {
 
 				</div>
 				<div className="col-md-4">
+
 					<div className="editprofile">
 						<h3>About Me</h3>
-						{/* <textarea
-						// name="aboutme"
-						// // value={aboutme}
-						// onChange={handleChange}
-						// {...store.userDoctor.aboutme}
-						></textarea> */}
 						<p>{doctor.aboutme}</p>
+						<textarea
+							name="aboutme"
+							value={inputValueTwo.aboutme}
+							onChange={handleChangeTwo}
+
+						></textarea>
+
 					</div>
 					<br />
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
-						{/* <textarea
-							name="howicanhelp"
-							// value={howicanhelp}
-							onChange={handleChange}
-						></textarea> */}
 						<p>{doctor.howicanhelp}</p>
+						<textarea
+							name="howicanhelp"
+							value={inputValueTwo.howicanhelp}
+							onChange={handleChangeTwo}
+
+						></textarea>
+
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
-						{/* <textarea
+						<p>{doctor.services}</p>
+						<textarea
 							name="services"
-							// value={services}
-							onChange={handleChange}
-						></textarea> */}
-						{/* <p>{doctor.services}</p> */}
+							value={inputValueTwo.services}
+							onChange={handleChangeTwo}
+
+						></textarea>
+
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
-						{/* <textarea className="special"
-							name="certifications"
-							// value={certifications}
-							onChange={handleChange}
-						></textarea> */}
 						<p>{doctor.certifications}</p>
+						<textarea className="special"
+							name="certifications"
+							value={inputValueTwo.certifications}
+							onChange={handleChangeTwo}
+						></textarea>
+
 					</div>
 					{/* <Link className="" to=""> */}
 					<button
 						type="button"
 						className="btn btn-primary form-control"
-						onClick={() => actions.addprofile(aboutme, howicanhelp, services, certifications,)}>
+						onClick={() => actions.editProfileTwo(inputValueTwo.aboutme, inputValueTwo.howicanhelp, inputValueTwo.services, inputValueTwo.certifications, doctor.id)}>
 						save
 					</button>
 					{/* </Link> */}

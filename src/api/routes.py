@@ -245,3 +245,38 @@ def edit_profile(id):
     # updatedUsersDoctor = UserDoctors.query.get(id)
 
     return jsonify( profile_id.serialize())
+
+#here is the second part of the profile 
+
+
+@api.route('/userdoctors/profiletwo/<int:id>', methods=['PUT'])
+def edit_profiletwo(id):
+
+    
+
+    aboutme = request.json.get("aboutme")
+    howicanhelp = request.json.get("howicanhelp")
+    services = request.json.get("services")
+    certifications = request.json.get("certifications")
+    id = request.json.get("id")
+
+    profiletwo_id = UserDoctors.query.filter_by(id=id).one_or_none()
+    if profiletwo_id is None:
+        raise APIException('Profile no found', status_code=404)
+
+    if aboutme:
+        profiletwo_id.aboutme = aboutme
+    if howicanhelp:
+        profiletwo_id.howicanhelp = howicanhelp
+    if services:
+        profiletwo_id.services = services
+    if certifications:
+        profiletwo_id.certifications = certifications
+
+    # UserDoctors.query.filter_by(id=id).update(dict(email=body["email"], full_name = body["full_name"], phone = body["phone"], specialty=body["specialty"], sub_specialty=body["sub_specialty"], years_of_experience=body["years_of_experience"]))
+    db.session.commit()
+
+    # updatedUsersDoctor = UserDoctors.query.get(id)
+
+    return jsonify( profiletwo_id.serialize())
+

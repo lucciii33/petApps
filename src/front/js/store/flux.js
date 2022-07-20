@@ -115,6 +115,29 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      editProfileTwo: async (aboutme, howicanhelp, services, certifications, id) => {
+        const store = getStore()
+        try {
+          const respon = await fetch(`${process.env.BACKEND_URL}/api/userdoctors/profiletwo/${id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              aboutme, howicanhelp, services, certifications, id
+            }),
+          })
+          if (respon.ok) {
+            const data = await respon.json()
+            setStore({ userDoctor: data });
+          }
+
+        }
+        catch (error) {
+          throw Error("not working")
+        }
+      },
+
       getDataDoctors: async () => {
         try {
           const response = await fetch(`${process.env.BACKEND_URL}/api/userdoctors`);
