@@ -18,9 +18,9 @@ export const UploadImage = () => {
         body.append("profile_image", imageFiles[0]);
         const options = {
             body,
-            method: 'POST'
+            method: 'PUT'
         }
-        fetch(`${process.env.BACKEND_URL}/api/upload`, options)
+        fetch(`${process.env.BACKEND_URL}/api/upload/${store.userDoctor.id}`, options)
             .then(response => response.json())
             .then(data => console.log("correct!!", data))
             .catch(err => console.error("error", err))

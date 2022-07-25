@@ -283,12 +283,19 @@ def edit_profiletwo(id):
 
     return jsonify( profiletwo_id.serialize())
 
-@api.route('/upload', methods=['POST'])
-def send_image():
+@api.route('/upload/<int:id>', methods=['PUT'])
+def send_image(id):
 
-#    print(request.files)
-   result = cloudinary.uploader.upload(request.files["profile_image"])
+    if 'profile_image' in request.files:
+        print(request.files["profile_image"])
+        result = cloudinary.uploader.upload(request.files["profile_image"])
+        userDoctor = UserDoctors.query.filter_by(id=id).one_or_none()
+        print(result)
+        userDoctor.image_profile = result['secure_url']
 
-   return jsonify("successfully"), 200
+        db.session.add(userDoctor)
+        db.session.commit()
+
+        return jsonify(userDoctor.serialize()), 200
     
 
