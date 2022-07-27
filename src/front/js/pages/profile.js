@@ -34,11 +34,12 @@ export const Profile = () => {
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
-
 					<div className="">
-						<Link to="/uploadImage"><div src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile ">
+						<img src={doctor.image_profile} className="image-user" />
+						<Link to="/uploadImage"><div src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className=" ">
 							edit your pic here
 						</div></Link>
+
 					</div>
 					<div className="sectionprofile">
 						<h5 className="mb-2">{doctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>

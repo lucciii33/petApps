@@ -343,3 +343,7 @@ textarea {
   background-color: #c9e9b8;
   margin-top: 15px;
 }
+.image-user {
+  width: 200px;
+  height: 200px;
+}
