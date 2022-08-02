@@ -36,7 +36,7 @@ export const Profile = () => {
 				<div className="col-md-4 boximage ">
 					<div className="">
 						<img src={doctor.image_profile} className="image-user" />
-						<Link to="/uploadImage"><div src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className=" ">
+						<Link to="/uploadImage"><div src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="text-center ">
 							edit your pic here
 						</div></Link>
 
@@ -119,7 +119,8 @@ export const Profile = () => {
 					</div>
 
 				</div>
-				<div className="col-md-4">
+				<div className="col-md-4 bg-profiletwo">
+
 
 					<div className="editprofile">
 						<h3>About Me</h3>
@@ -132,7 +133,6 @@ export const Profile = () => {
 						></textarea>
 
 					</div>
-					<br />
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
 						<p>{doctor.howicanhelp}</p>
@@ -140,7 +140,6 @@ export const Profile = () => {
 							name="howicanhelp"
 							value={inputValueTwo.howicanhelp}
 							onChange={handleChangeTwo}
-
 						></textarea>
 
 					</div>
@@ -151,7 +150,6 @@ export const Profile = () => {
 							name="services"
 							value={inputValueTwo.services}
 							onChange={handleChangeTwo}
-
 						></textarea>
 
 					</div>
@@ -168,17 +166,17 @@ export const Profile = () => {
 					{/* <Link className="" to=""> */}
 					<button
 						type="button"
-						className="btn btn-primary form-control"
+						className="btn-profile form-control mt-2 p-1"
 						onClick={() => actions.editProfileTwo(inputValueTwo.aboutme, inputValueTwo.howicanhelp, inputValueTwo.services, inputValueTwo.certifications, doctor.id)}>
 						save
 					</button>
 					{/* </Link> */}
 				</div>
-				<div className="col-md-4">
+				{/* <div className="col-md-4">
 					<div className="availability"></div>
 					<div className="cancelation"></div>
 					<div className="payment"></div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

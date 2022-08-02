@@ -12,18 +12,17 @@ export const Home = () => {
 	return (
 		<div className="">
 			<div className="d-flex row mainpagebox">
-				<div className="col-md-6 col-sm-12">
+				<div className="col-md-6 col-sm-12 center">
 					<div className="text1 text-center">
 						<h2>Connect with thousands<br /> of professionals for your pet</h2>
 						<p>One click away from the best <strong className="strongtext">veterinarians, hospitals, grooming, trainings, daycares, stores and more.</strong> You can have access to any pet related service in your area. Book it here!.</p>
+						<button className="btn btn-success greenbutton">LEARN MORE</button>
 					</div>
-					<button className="btn btn-success greenbutton">LEARN MORE</button>
 				</div>
 				<div className="col-md-6 imagebox col-sm-12" >
 					<img src={image1} className="image1"></img>
 				</div>
 			</div>
-			<Link to="/profile">profile</Link>
 		</div>
 	);
 };
