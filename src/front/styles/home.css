@@ -201,6 +201,26 @@ textarea {
   width: 100%;
   height: 230px;
 }
+.bg-green-doctors {
+  background-color: #c9e9b8;
+  width: 100%;
+}
+.conta-doctors {
+  display: flex;
+  justify-content: space-evenly;
+}
+.new-image {
+  width: auto;
+  height: 500px;
+}
+.center-doctors {
+  display: table;
+  text-align: center;
+}
+.children {
+  display: table-cell;
+  vertical-align: middle;
+}
 
 .PHbox {
   width: 316px;
@@ -208,9 +228,16 @@ textarea {
   background-color: #c9e9b8;
   margin-right: 35px;
   border-radius: 18px;
+  display: table;
+  text-align: center;
+}
+.center-text-container {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 12px;
 }
 .PHboxcontainer {
-  margin-top: 75px;
+  margin-top: 45px;
   margin-left: 250px;
 }
 .bggreenflex {
