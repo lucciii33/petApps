@@ -17,10 +17,10 @@ export const PractitionerHomePage = props => {
 
 						<h2 className="text-center p-3 pt-4">Grow your Practice with Elana</h2>
 						<p className="text-center pb-3">Together we can transform women's health</p>
-						<div className="d-flex children">
-							<Link to='/registerDoctor'><button className="btn btn-success d-block m-auto">REGISTER NOW</button></Link>
-							<Link to='/registerDoctor'><button className="btn btn-success d-block m-auto">REGISTER NOW</button></Link>
-						</div>
+						{/* <div className="d-flex ms-5"> */}
+						<span className="m-1"><Link to='/registerDoctor'><button className="btn btn-success ">REGISTER NOW</button></Link></span>
+						<span className="m-1"><Link to='/logindoctor'><button className="btn btn-success ">LOGIN</button></Link></span>
+						{/* </div> */}
 
 					</div>
 				</div>
@@ -74,8 +74,8 @@ export const PractitionerHomePage = props => {
 				<div className="PHbg-green mt-5 ">
 					<div>
 						<h2 className="text-center p-3 pt-4">Grow your Practice with Elana</h2>
-						<p className="text-center pb-3">Together we can transform women's health</p>
-						<Link to='/registerDoctor'><button className="btn btn-success d-block m-auto">REGISTER NOW</button></Link>
+						<p className="text-center pb-3">Together we can transform women's health <br />Together we can transform women's health <br /> Together we can transform women's health</p>
+
 					</div>
 
 				</div>
