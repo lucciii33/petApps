@@ -5,17 +5,22 @@ import "../../styles/home.css";
 import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CardProviders } from "../component/cardproviders";
+import ReactPaginate from 'react-paginate';
 
 
 export const GetDoctors = ({ data }) => {
     const { store, actions } = useContext(Context);
-    const [practitioners, setPractitioners] = useState(null)
+    const [practitioners, setPractitioners] = useState(store.allDoctors.slice(0, 2))
     const [filterValue, setFilterValue] = useState("")
+    const [pageNumber, setPageNumber] = useState(0)
+    const userPerPage = 2
+    const pageVisited = pageNumber * pageNumber;
     const params = useParams();
     console.log(store.allDoctors)
 
+
     useEffect(() => {
-        setPractitioners(store.allDoctors)
+        setPractitioners(store.allDoctors.slice(0, 5))
     }, [store.allDoctors])
 
     useEffect(() => {
@@ -27,6 +32,22 @@ export const GetDoctors = ({ data }) => {
         }
 
     }, [filterValue])
+
+    const displayUsers = practitioners.slice(pageVisited, pageVisited + userPerPage)
+        .map((info, index) => {
+            return (<Link to={`/profileuserview/${info.id}`}><CardProviders data={{
+                full_name: info.full_name,
+                howicanhelp: info.howicanhelp,
+                services: info.services,
+            }}
+                key={index}
+            /></Link>)
+        })
+
+    const pageCount = Math.ceil(practitioners.length / userPerPage)
+    const handlePageClick = ({ selected }) => {
+        setPageNumber(selected)
+    }
 
     return (
         <div className="">
@@ -52,7 +73,7 @@ export const GetDoctors = ({ data }) => {
             </div>
             <div className="d-flex flex-wrap m-2">
                 <div>
-                    {practitioners && practitioners.map((info, index) => {
+                    {/* {practitioners && practitioners.map((info, index) => {
                         return (<Link to={`/profileuserview/${info.id}`}><CardProviders data={{
                             full_name: info.full_name,
                             howicanhelp: info.howicanhelp,
@@ -60,7 +81,21 @@ export const GetDoctors = ({ data }) => {
                         }}
                             key={index}
                         /></Link>)
-                    })}
+                    })} */}
+                    {displayUsers}
+                    <ReactPaginate
+                        nextLabel={"next"}
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={""}
+                        pageCount={pageCount}
+                        previousLabel={"previus"}
+                        renderOnZeroPageCount={null}
+                        containerClassName={'paginationButtns'}
+                        previousLinkClassName={"previousButtn"}
+                        nextLinkClassName={"nextButtn"}
+                    // disabledClassName={"disabledButtn"}
+                    // activeClassName={"activeButtn"}
+                    />
                 </div>
 
             </div>

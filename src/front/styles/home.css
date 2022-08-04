@@ -403,3 +403,24 @@ textarea {
   display: table;
   text-align: center;
 }
+
+/* ////////////////////////////////////////getDoctors/////////////////////////// */
+.paginationButtns {
+  width: 50%;
+  height: 50px;
+  list-styles: none;
+  display: flex;
+  /* justify-content: center; */
+}
+.paginationButtns a {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #198754;
+  color: #198754;
+  cursor: pointer;
+}
+.paginationButtns a:hover {
+  color: white;
+  background-color: #198754;
+}
