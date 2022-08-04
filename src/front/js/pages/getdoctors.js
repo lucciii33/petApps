@@ -14,7 +14,7 @@ export const GetDoctors = ({ data }) => {
     const [filterValue, setFilterValue] = useState("")
     const [pageNumber, setPageNumber] = useState(0)
     const userPerPage = 2
-    const pageVisited = pageNumber * pageNumber;
+    const pageVisited = pageNumber * userPerPage;
     const params = useParams();
     console.log(store.allDoctors)
 
