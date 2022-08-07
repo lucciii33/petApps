@@ -10,10 +10,10 @@ import ReactPaginate from 'react-paginate';
 
 export const GetDoctors = ({ data }) => {
     const { store, actions } = useContext(Context);
-    const [practitioners, setPractitioners] = useState(store.allDoctors.slice(0, 2))
+    const [practitioners, setPractitioners] = useState([])
     const [filterValue, setFilterValue] = useState("")
     const [pageNumber, setPageNumber] = useState(0)
-    const userPerPage = 2
+    const userPerPage = 3
     const pageVisited = pageNumber * userPerPage;
     const params = useParams();
     console.log(store.allDoctors)
@@ -86,13 +86,15 @@ export const GetDoctors = ({ data }) => {
                     <ReactPaginate
                         nextLabel={"next"}
                         onPageChange={handlePageClick}
-                        pageRangeDisplayed={""}
+                        pageRangeDisplayed={2}
                         pageCount={pageCount}
                         previousLabel={"previus"}
                         renderOnZeroPageCount={null}
                         containerClassName={'paginationButtns'}
                         previousLinkClassName={"previousButtn"}
                         nextLinkClassName={"nextButtn"}
+                        breakLabel="..."
+
                     // disabledClassName={"disabledButtn"}
                     // activeClassName={"activeButtn"}
                     />

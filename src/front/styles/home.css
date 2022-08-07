@@ -408,7 +408,7 @@ textarea {
 .paginationButtns {
   width: 50%;
   height: 50px;
-  list-styles: none;
+  list-style: none;
   display: flex;
   /* justify-content: center; */
 }
@@ -423,4 +423,55 @@ textarea {
 .paginationButtns a:hover {
   color: white;
   background-color: #198754;
+}
+/* ///////////////////////logindoctor/////////////////// */
+.jumbo {
+  width: 100%;
+  height: 100vh;
+  background: hsla(99, 53%, 82%, 1);
+  padding: 10px;
+  background: linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C9E9B8", endColorstr="#198754", GradientType=1 );
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.bg-white-container {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+/* //////////////////////// registerdoctor////////////////////////// */
+.bg-white-contatwo {
+  width: 700px;
+  height: 100vh;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+.messure {
+  width: 200px;
+}
+.m-e {
+  margin-right: 100px;
 }

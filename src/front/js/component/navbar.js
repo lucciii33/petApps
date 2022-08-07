@@ -40,7 +40,8 @@ export const Navbar = () => {
 						</Link>
 						<Link to='/logindoctor'><li className="">
 							<h5 className="linknav" href="#">Login</h5>
-						</li></Link>
+						</li>
+						</Link>
 					</ul>
 				</div>
 			</nav>
