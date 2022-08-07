@@ -13,29 +13,29 @@ export const CompOne = () => {
                 <br />
                 <h2>connect with thousands of professionals <br /> for your pet </h2>
             </div>
-            <div className="d-flex justify-content-center p-4">
-                <div className="circlemainpage position-relative">
+            <div className="d-flex justify-content-center p-4 row">
+                <div className="col-sm-12 circlemainpage position-relative">
                     <div className="position-absolute top-50 start-50 translate-middle">
 
                         <h1>Lorem</h1>
                         <p>Lorem iosuo another time</p>
                     </div>
                 </div>
-                <div className="circlemainpage position-relative ">
+                <div className="col-sm-12 circlemainpage position-relative ">
                     <div className="position-absolute top-50 start-50 translate-middle">
 
                         <h1>Lorem</h1>
                         <p>Lorem iosuo another time</p>
                     </div>
                 </div>
-                <div className="circlemainpage position-relative ">
+                <div className=" col-sm-12 circlemainpage position-relative ">
                     <div className="position-absolute top-50 start-50 translate-middle">
 
                         <h1>Lorem</h1>
                         <p>Lorem iosuo another time</p>
                     </div>
                 </div>
-                <div className="circlemainpage position-relative ">
+                <div className="col-sm-12 circlemainpage position-relative ">
                     <div className="position-absolute top-50 start-50 translate-middle">
 
                         <h1>Lorem</h1>

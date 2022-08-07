@@ -18,21 +18,23 @@ export const CompTwo = () => {
                 <p>Issues or not - finding the right care for your pelvic wellness isn’t always easy.
                     Elana works with you to prevent or help treat pelvic challenges you may be facing</p>
             </div>
-            <div className="d-flex justify-content-center">
-                <div className="squeremainpage-rigth">
-                    <img src={grooming} className="grooming "></img>
-                </div>
-                <div className="squeremainpage">
-                    <img src={clinic} className="grooming "></img>
-                </div>
+            <div>
+                <div className="d-flex justify-content-center row">
+                    <div className="col-sm-12 squeremainpage-rigth">
+                        <img src={grooming} className="grooming "></img>
+                    </div>
+                    <div className="col-sm-12 squeremainpage">
+                        <img src={clinic} className="grooming "></img>
+                    </div>
 
-            </div>
-            <div className="d-flex row justify-content-center">
-                <div className="squeremainpage-rigth">
-                    <img src={traindog} className="grooming "></img>
                 </div>
-                <div className="squeremainpage">
-                    <img src={dogwalker} className="grooming "></img>
+                <div className="d-flex row justify-content-center ">
+                    <div className="col-sm-12 squeremainpage-rigth">
+                        <img src={traindog} className="grooming "></img>
+                    </div>
+                    <div className="col-sm-12 squeremainpage">
+                        <img src={dogwalker} className="grooming "></img>
+                    </div>
                 </div>
             </div>
         </div>
