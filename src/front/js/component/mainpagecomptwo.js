@@ -12,31 +12,27 @@ export const CompTwo = () => {
 
     return (
         <div className="bg-green mt-4">
-
-            <div className="text-center mt-2">
-                <h2 className="mt-2">Pelvic issues are way more common than you think</h2>
-                <p>Issues or not - finding the right care for your pelvic wellness isn’t always easy.
-                    Elana works with you to prevent or help treat pelvic challenges you may be facing</p>
+            <div className="text-center">
+                <h2>What we offer</h2>
             </div>
-            <div>
-                <div className="d-flex justify-content-center row">
-                    <div className="col-sm-12 squeremainpage-rigth">
-                        <img src={grooming} className="grooming "></img>
-                    </div>
-                    <div className="col-sm-12 squeremainpage">
-                        <img src={clinic} className="grooming "></img>
-                    </div>
+            <br /><br /><br />
+            <div row className="d-flex row justify-content-center align-items-center" >
+                <div className="  squeremainpage col-md-3 ">
+                    <img src={grooming} className="grooming col-sm-12"></img>
+                </div>
+                <div className=" squeremainpage  col-md-3">
+                    <img src={clinic} className="grooming col-sm-12"></img>
+                </div>
 
+                <div className="squeremainpage  col-md-3 col-sm-12">
+                    <img src={traindog} className="grooming "></img>
                 </div>
-                <div className="d-flex row justify-content-center ">
-                    <div className="col-sm-12 squeremainpage-rigth">
-                        <img src={traindog} className="grooming "></img>
-                    </div>
-                    <div className="col-sm-12 squeremainpage">
-                        <img src={dogwalker} className="grooming "></img>
-                    </div>
+                <div className="squeremainpage  col-md-3">
+                    <img src={dogwalker} className="grooming "></img>
                 </div>
+
             </div>
+            <br /><br /><br />
         </div>
     );
 };
