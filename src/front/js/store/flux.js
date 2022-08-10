@@ -84,12 +84,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         const data = await resp.json();
         console.log("data", data)
+        let jwt = { "jwt-token": data.access_token, "id": data.user.id }
         // save your token in the sessionStorage
         setStore({ userDoctor: data.user });
-        sessionStorage.setItem("jwt-token", data.access_token);
+        sessionStorage.setItem(jwt);
         // console.log(loggId)
         return data.access_token;
 
+      },
+
+      logout: () => {
+        sessionStorage.removeItem("jwt-token");
+        setStore({ userDoctor: null });
+      },
+
+      retreiveSession: () => {
+        let strData = { "token": sessionStorage.getItem("jwt-token"), "id": sessionStorage.getItem("id") };
+        // console.log(strData)
+        fetch(`${process.env.BACKEND_URL}/api/require`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${strData.token}`
+          },
+          body: JSON.stringify({ id: strData.id })
+        })
+          .then(res => res.json())
+          .then(info => {
+            setStore({ userDoctor: info }), console.log(info)
+          })
       },
 
       updateDoctorsProfile: async (email, full_name, phone, specialty, sub_specialty, years_of_experience, id) => {

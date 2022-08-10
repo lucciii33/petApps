@@ -118,6 +118,17 @@ def create_token_doctors():
     
     return jsonify({'access_token':access_token, 'user': user_doctors.serialize()})
 
+##here i am trying to get the access token#####################################################################3
+
+@api.route('/require', methods=['POST'])
+@jwt_required()
+def get_user_bytoken():
+    
+    user_doctor = UserDoctors.query.filter_by(id=id).first()
+    # user_query = User.query.all()
+    # all_users = list(map(lambda x: x.serialize(),  user_query))
+    
+    return jsonify(user_doctor.serialize()), 200
 
 
 @api.route('/userdoctors/register', methods=['POST'])
