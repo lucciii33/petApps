@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import image2 from "../../img/petsafe.png";
+import { Context } from "../store/appContext";
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div >
 			<nav className="navbar navbar-expand-lg navbar-white bg-white">
@@ -42,6 +44,11 @@ export const Navbar = () => {
 							<h5 className="linknav" href="#">Login</h5>
 						</li>
 						</Link>
+						{store.userDoctor ? (<li className="">
+							<h5 className="linknav" href="#">test</h5>
+						</li>) : (<li className="">
+							<h5 className="linknav" href="#">testwork</h5>
+						</li>)}
 					</ul>
 				</div>
 			</nav>
