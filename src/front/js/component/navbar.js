@@ -44,11 +44,9 @@ export const Navbar = () => {
 							<h5 className="linknav" href="#">Login</h5>
 						</li>
 						</Link>
-						{store.userDoctor ? (<li className="">
-							<h5 className="linknav" href="#">test</h5>
-						</li>) : (<li className="">
-							<h5 className="linknav" href="#">testwork</h5>
-						</li>)}
+						{store.userDoctor && (<Link to="/profile"><li className="">
+							<h5 className="linknav" href="#">profile</h5>
+						</li></Link>)}
 					</ul>
 				</div>
 			</nav>

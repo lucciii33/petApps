@@ -120,10 +120,14 @@ def create_token_doctors():
 
 ##here i am trying to get the access token#####################################################################3
 
-@api.route('/require', methods=['POST'])
+@api.route('/require', methods=['GET'])
 @jwt_required()
 def get_user_bytoken():
     
+    id=get_jwt_identity()
+    if not id:
+        return jsonify("no user signed in"), 400
+
     user_doctor = UserDoctors.query.filter_by(id=id).first()
     # user_query = User.query.all()
     # all_users = list(map(lambda x: x.serialize(),  user_query))

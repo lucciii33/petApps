@@ -20,7 +20,7 @@ export const Profile = () => {
 	const handleChangeTwo = e => {
 		setInputValueTwo({ ...inputValueTwo, [e.target.name]: e.target.value });
 	};
-	const doctor = store.userDoctor
+	// const doctor = store.userDoctor
 
 	// useEffect(async () => {
 	// 	// await actions.getDataDoctors();
@@ -30,19 +30,19 @@ export const Profile = () => {
 	return (
 		<div className="container">
 			<div>
-				<h2>{doctor.full_name}</h2>
+				<h2>{store.userDoctor?.full_name}</h2>
 			</div>
 			<div className="row">
 				<div className="col-md-4 boximage ">
 					<div className="">
-						<img src={doctor.image_profile} className="image-user" />
+						<img src={store.userDoctor?.image_profile} className="image-user" />
 						<Link to="/uploadImage"><div src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="text-center ">
 							edit your pic here
 						</div></Link>
 
 					</div>
 					<div className="sectionprofile">
-						<h5 className="mb-2">{doctor.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+						<h5 className="mb-2">{store.userDoctor?.full_name} </h5> <i className="fas fa-pencil-alt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
 
 						<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div className="modal-dialog">
@@ -100,17 +100,17 @@ export const Profile = () => {
 
 
 						<h6 className="mb-2">email</h6>
-						<p>{doctor.email}</p>
+						<p>{store.userDoctor?.email}</p>
 						<h6 className="mb-2">practice name</h6>
-						<p>{doctor.full_name}</p>
+						<p>{store.userDoctor?.full_name}</p>
 						<h6 className="mb-2">phone</h6>
-						<p>{doctor.phone}</p>
+						<p>{store.userDoctor?.phone}</p>
 						<h6 className="mb-2">Specialty</h6>
-						<p>{doctor.specialty}</p>
+						<p>{store.userDoctor?.specialty}</p>
 						<h6 className="mb-2">Sub-Specialties</h6>
-						<p>{doctor.sub_specialty}</p>
+						<p>{store.userDoctor?.sub_specialty}</p>
 						<h6 className="mb-2">Years of Experience</h6>
-						<p>{doctor.years_of_experience}</p>
+						<p>{store.userDoctor?.years_of_experience}</p>
 						<div className="d-flex mb-2">
 							<h6>need a video call?</h6>
 							<i class="fas fa-video ms-3"></i>
@@ -124,7 +124,7 @@ export const Profile = () => {
 
 					<div className="editprofile">
 						<h3>About Me</h3>
-						<p>{doctor.aboutme}</p>
+						<p>{store.userDoctor?.aboutme}</p>
 						<textarea
 							name="aboutme"
 							value={inputValueTwo.aboutme}
@@ -135,7 +135,7 @@ export const Profile = () => {
 					</div>
 					<div className="editprofile">
 						<h3>How I can help you?</h3>
-						<p>{doctor.howicanhelp}</p>
+						<p>{store.userDoctor?.howicanhelp}</p>
 						<textarea
 							name="howicanhelp"
 							value={inputValueTwo.howicanhelp}
@@ -145,7 +145,7 @@ export const Profile = () => {
 					</div>
 					<div className="editprofile">
 						<h3>Services offered</h3>
-						<p>{doctor.services}</p>
+						<p>{store.userDoctor?.services}</p>
 						<textarea
 							name="services"
 							value={inputValueTwo.services}
@@ -155,7 +155,7 @@ export const Profile = () => {
 					</div>
 					<div className="editprofilecertification">
 						<h3>Certifications</h3>
-						<p>{doctor.certifications}</p>
+						<p>{store.userDoctor?.certifications}</p>
 						<textarea className="special"
 							name="certifications"
 							value={inputValueTwo.certifications}

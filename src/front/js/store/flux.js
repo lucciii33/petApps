@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       user: {},
-      userDoctor: {},
+      userDoctor: null,
       allDoctors: [],
       doctorsbyId: {},
     },
@@ -84,10 +84,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         const data = await resp.json();
         console.log("data", data)
-        let jwt = { "jwt-token": data.access_token, "id": data.user.id }
+        // let jwt = { "jwt-token": data.access_token, "id": data.user.id }
         // save your token in the sessionStorage
         setStore({ userDoctor: data.user });
-        sessionStorage.setItem(jwt);
+        sessionStorage.setItem("jwt-token", data.access_token);
         // console.log(loggId)
         return data.access_token;
 
@@ -99,19 +99,21 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       retreiveSession: () => {
-        let strData = { "token": sessionStorage.getItem("jwt-token"), "id": sessionStorage.getItem("id") };
+        // let strData = { "token": sessionStorage.getItem("jwt-token"), "id": sessionStorage.getItem("id") };
         // console.log(strData)
+        let token = sessionStorage.getItem("jwt-token");
         fetch(`${process.env.BACKEND_URL}/api/require`, {
-          method: "POST",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${strData.token}`
+            "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify({ id: strData.id })
         })
           .then(res => res.json())
           .then(info => {
-            setStore({ userDoctor: info }), console.log(info)
+            if (info.email) {
+              setStore({ userDoctor: info }), console.log(info)
+            }
           })
       },
 
