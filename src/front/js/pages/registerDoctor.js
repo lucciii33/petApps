@@ -26,6 +26,7 @@ export const RegisterDoctor = (props) => {
       {/* <h1>Register doctor</h1> */}
 
       <div className="bg-white-contatwo">
+        <h1 className="text-center">Register</h1>
         <div className="d-flex">
           <div className="mb-2 m-e">
             <label for="exampleInputEmail1" className="form-label">
@@ -121,7 +122,7 @@ export const RegisterDoctor = (props) => {
               </select>
             </div>
           </div>
-          <div className="mb-2 m-e">
+          <div className="mb-2 ">
             <label
               for="exampleInputPassword1"
               className="form-label"
@@ -130,7 +131,7 @@ export const RegisterDoctor = (props) => {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control m-e-n"
               value={registerDoctor.sub_specialty}
               name="sub_specialty"
               onChange={handleChange}
@@ -176,11 +177,11 @@ export const RegisterDoctor = (props) => {
             for="exampleInputPassword1"
             className="form-label"
           >
-            howicanhelp
+            How I Can Help
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control input-register-doctor"
             value={registerDoctor.howicanhelp}
             name="howicanhelp"
             onChange={handleChange}
@@ -195,7 +196,7 @@ export const RegisterDoctor = (props) => {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control input-register-doctor"
             value={registerDoctor.services}
             name="services"
             onChange={handleChange}
@@ -210,7 +211,7 @@ export const RegisterDoctor = (props) => {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control input-register-doctor"
             value={registerDoctor.certifications}
             name="certifications"
             onChange={handleChange}
@@ -225,19 +226,23 @@ export const RegisterDoctor = (props) => {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control input-register-doctor"
             value={registerDoctor.aboutme}
             name="aboutme"
             onChange={handleChange}
           />
         </div>
-        <Link to="/logindoctor"><button
-          type="submit"
-          className="btn btn-primary"
-          onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience, registerDoctor.aboutme, registerDoctor.howicanhelp, registerDoctor.services, registerDoctor.certifications, registerDoctor.image_profile)}
-        >
-          Submit
-        </button></Link>
+        <div className="pt-1">
+          <Link to="/logindoctor">
+            <button
+              type="submit"
+              className="btn btn-success"
+              onClick={() => actions.registerUserDoctor(registerDoctor.email, registerDoctor.full_name, registerDoctor.phone, registerDoctor.password, registerDoctor.specialty, registerDoctor.sub_specialty, registerDoctor.years_of_experience, registerDoctor.aboutme, registerDoctor.howicanhelp, registerDoctor.services, registerDoctor.certifications, registerDoctor.image_profile)}
+            >
+              Submit
+            </button></Link>
+        </div>
+
       </div>
     </div>
   );

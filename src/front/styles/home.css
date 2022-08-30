@@ -430,7 +430,7 @@ textarea {
 /* ///////////////////////logindoctor/////////////////// */
 .jumbo {
   width: 100%;
-  height: 100vh;
+  height: 870px;
   background: hsla(99, 53%, 82%, 1);
   padding: 10px;
   background: linear-gradient(
@@ -463,15 +463,29 @@ textarea {
 
 /* //////////////////////// registerdoctor////////////////////////// */
 .bg-white-contatwo {
-  width: 700px;
-  height: 100vh;
+  width: 600px;
+  height: 835px;
   background-color: white;
   border-radius: 10px;
   padding: 25px;
 }
 .messure {
-  width: 200px;
+  width: 223px;
 }
 .m-e {
   margin-right: 100px;
+}
+.input-register-doctor {
+  width: 550px;
+  height: 50px;
+}
+.m-e-n {
+  width: 225px;
+}
+
+/////////////////////////information user///////////////////////////
+.bg-newuser {
+  background: greenyellow;
+  width: 600px;
+  height: 250px;
 }

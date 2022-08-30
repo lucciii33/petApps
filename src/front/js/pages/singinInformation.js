@@ -9,9 +9,15 @@ export const SinginInformation = props => {
     const params = useParams();
 
     return (
-        <div className="jumbotron">
-            <h1>Thank you for being here! {store.user.first_name} {store.user.last_name} we hope to help you</h1>
-            <Link to="/singin"><button className="btn btn-success"></button></Link>
+        <div className="m-auto">
+            <div className="text-center bg-newuser ">
+
+                <h1>Thank you for being here! {store.user.first_name} {store.user.last_name} we hope to help you</h1>
+                <h4>we are glad that you are here</h4>
+                <p>So dont lose any more time and click here to find what you need</p>
+                <Link to="/getdoctors"><button className="btn btn-success">find me!</button></Link>
+            </div>
+
         </div>
     );
 };

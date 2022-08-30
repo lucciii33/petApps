@@ -1,3 +1,23 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.bg-newuser {
+  background: linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(99, 53%, 82%, 1) 25%,
+    hsla(152, 69%, 31%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C9E9B8", endColorstr="#198754", GradientType=1 );
+  width: 600px;
+  height: 250px;
+}
