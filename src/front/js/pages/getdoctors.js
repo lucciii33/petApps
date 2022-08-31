@@ -13,14 +13,14 @@ export const GetDoctors = ({ data }) => {
     const [practitioners, setPractitioners] = useState([])
     const [filterValue, setFilterValue] = useState("")
     const [pageNumber, setPageNumber] = useState(0)
-    const userPerPage = 3
+    const userPerPage = 5
     const pageVisited = pageNumber * userPerPage;
     const params = useParams();
     console.log(store.allDoctors)
 
 
     useEffect(() => {
-        setPractitioners(store.allDoctors.slice(0, 5))
+        setPractitioners(store.allDoctors.slice(0, 10))
     }, [store.allDoctors])
 
     useEffect(() => {

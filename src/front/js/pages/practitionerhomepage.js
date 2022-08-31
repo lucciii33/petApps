@@ -15,8 +15,8 @@ export const PractitionerHomePage = props => {
 					<div className="children">
 
 
-						<h2 className="text-center p-3 pt-4">Grow your Practice with Elana</h2>
-						<p className="text-center pb-3">Together we can transform women's health</p>
+						<h2 className="text-center p-3 pt-4 text-title">Let us help yur dog</h2>
+						<p className="text-center pb-3 text-ro">lorem ipus need some noce text here! to push a littile the text</p>
 						{/* <div className="d-flex ms-5"> */}
 						<span className="m-1"><Link to='/registerDoctor'><button className="btn btn-success ">REGISTER NOW</button></Link></span>
 						<span className="m-1"><Link to='/logindoctor'><button className="btn btn-success ">LOGIN</button></Link></span>

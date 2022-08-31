@@ -77,7 +77,7 @@ export const ProfileView = () => {
 						<div className="d-flex">
 
 							<div className="pt-3 ms-2 me-5">
-								<img src="https://501lifemag.com/wp-content/uploads/2020/06/64_0720_WEB.jpg" className="imageprofile1 "></img>
+								<img src={doctor && doctor.image_profile} className="imageprofile1 "></img>
 							</div>
 							<div className="editprofile1 pt-3">
 								<div className="d-flex justify-content-center">

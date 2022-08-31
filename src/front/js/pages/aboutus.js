@@ -10,31 +10,36 @@ export const AboutUs = props => {
 
 	return (
 		<div className="jumbotron">
-			<div className="text-center m-2">
-				<h1>Our Mission</h1>
-				<h5>Elana was launched to support, and be part of, a generational change <br /> in women’s health, transforming the conversation around pelvic care <br /> through empowerment, accessibility, and education.</h5>
+			<div className="text-center m-2 px-5">
+				<h6 className="text-ro">Our Mission</h6>
+				<h5 className='text-title'>making commer for better for everyone</h5>
+				<p className="text-ro px-5">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used <br /> to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
 				<br />
 			</div>
-			<div className="bg-aboutus text-center">
-				<h1>Our Mission</h1>
-				<br />
-				<h6>Here at Elana, pelvic care isn’t just business, it’s personal.​​</h6>
-				<p>Managing our own health at various chapters in our lives, we have seen and experienced first-hand some of the <br /> challenges when it comes to talking about intimate issues. Finding answers and feeling comfortable to talk openly<br />about health problems can be hard even with people you trust.<br />
-					<br />
-					Our journey started as two women, different countries, different ages, sharing our experiences of c-sections,<br /> postpartum complications, to the signs of perimenopause. From battling with extreme pelvic pain and complications,<br /> to feeling unprepared for the changes in a woman's health as we age, much of which, down to the lack of easily<br /> accessible information and knowing where to go for the right support.<br />
-					<br />
-					Our journeys shouldn’t have been so hard,  but it was, and is for so many women globally - on average it takes 7 years <br />for pelvic issues to be properly diagnosed. Having experienced first hand how life changing issues with the pelvic<br /> region can have on you, your mental health and relationships, we knew we had to be part of a lasting change.<br /></p>
-				<br />
-			</div>
-			<div>
-				<h1 className="text-center">Meet the Team</h1>
-				<div className="d-flex row justify-content-center">
-					<div className="squereaboutus col-md-4"></div>
-					<div className="squereaboutus col-md-4"></div>
-					<div className="squereaboutus col-md-4"></div>
+			<div className=" text-center bg-text position-relative mt-5">
+				<div className="bg-aboutus text-start ">
+					<h6 className="text-ro mt-4 ms-5">Our People</h6>
+					<h5 className='text-title mt-4 ms-5'>Creating a comunity for impact</h5>
+					<p className="text-ro mt-4 ms-5">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used<br />  to demonstrate the visual form of a document or a typeface without <br /> relying on meaningful content. Lorem ipsum may be used as a placeholder<br />  before final copy is available. It is also used to temporarily replace text<br />  in a process called greeking, which allows designers to consider <br /> the form of a webpage or publication,</p>
+
+					<img src="https://tse2.mm.bing.net/th?id=OIP.zOT895A5xtSaNqED1-9sTAHaEo&pid=Api&P=0" className="about-us-image position-absolute top-50 start-100 translate-middle"></img>
+
 				</div>
-			</div>
-		</div>
+			</div >
+
+			<div className=" text-center bg-text position-relative mt-5">
+				<div className="bg-aboutus2 text-end ">
+					<h6 className="text-ro mt-4 me-5">Our People</h6>
+					<h5 className='text-title mt-4 mb-4 me-5'>Creating a comunity for impact</h5>
+					<p className="text-ro me-5">All statements regarding absolute positioning are correct.<br /> People failed to mention, however, that you need position:<br /> relative on the parent container.</p>
+					<img src="http://www.urbanfarmonline.com/wp-content/uploads/2019/02/CatCuddle1.jpg" className="about-us-image2 position-absolute top-50 start-0 translate-middle"></img>
+
+				</div>
+			</div >
+
+
+
+		</div >
 	);
 };
 

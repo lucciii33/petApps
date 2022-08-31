@@ -5,6 +5,8 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,500&display=swap");
 .boximage {
   background-color: #c9e9b8;
   width: 250px;
@@ -110,6 +112,12 @@ textarea {
   margin: 0;
   align: center;
 }
+.text-ro {
+  font-family: "Roboto Mono", monospace;
+}
+.text-title {
+  font-family: "Ubuntu", sans-serif;
+}
 
 /* ///////////////////////////////////////// */
 .circlemainpage {
@@ -129,6 +137,27 @@ textarea {
 /* ////////////////////////// */
 .bg-aboutus {
   background-color: #c9e9b8;
+  width: 1200px;
+  margin-left: 100px;
+  height: 450px;
+  padding: 30px;
+}
+.bg-aboutus2 {
+  background-color: #c9e9b8;
+  width: 1200px;
+  margin: auto;
+  height: 450px;
+  padding: 30px;
+}
+.about-us-image {
+  padding-right: 600px;
+  height: 300px;
+}
+.about-us-image2 {
+  padding-left: 670px;
+  height: 350px;
+}
+.bg-text {
 }
 .squereaboutus {
   width: 200px;
